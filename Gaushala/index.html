@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gau Seva Foundation - Protecting Stray Cows</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<!-- ========== Header / Navigation ========== -->
+<header class="bg-white/95 backdrop-blur-sm shadow-md fixed top-0 left-0 right-0 z-50 border-b border-gray-100">
+  <div class="bg-[#1a1a1a] text-gray-400 py-2 border-b border-gray-800 hidden lg:block">
+    <div
+      class="mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center text-[11px] font-bold uppercase tracking-wider">
+      <div class="flex items-center space-x-6">
+        <span class="flex items-center">
+          <i class="fas fa-map-marker-alt mr-2 text-[#f6570e]"></i> Jalgaon, India
+        </span>
+        <span class="flex items-center">
+          <i class="far fa-clock mr-2 text-[#f6570e]"></i> Mon - Sat : 10.00 AM - 06.00 PM
+        </span>
+      </div>
+
+      <div class="flex items-center space-x-6">
+        <a href="tel:+919209092150" class="hover:text-white transition-colors">
+          <i class="fas fa-phone-alt mr-2 text-[#f6570e]"></i>Contact us : +91 9860562929, +91 9011919575, +91
+          9970932315
+        </a>
+        <a href="mailto:krushnaigoshala2017@gmail.com" class="hover:text-white transition-colors lowercase">
+          <i class="fas fa-envelope mr-2 text-[#f6570e]"></i> krushnaigoshala2017@gmail.com
+        </a>
+
+        <!-- SOCIAL ICONS -->
+        <div class="flex items-center space-x-3 border-l border-gray-700 pl-4">
+          <a href="" class="hover:text-sky-400" title="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="" class="hover:text-[#E4405F]" title="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="" class="hover:text-[#0A66C2]" title="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="" class="hover:text-red-500" title="YouTube">
+            <i class="fab fa-youtube"></i>
+          </a>
+          <!-- <a href="#" class="hover:text-sky-400" title="Twitter / X">
+                    <i class="fab fa-twitter"></i> -->
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Navbar -->
+  <nav class="glass-effect">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        <!-- Logo -->
+        <div class="flex items-center space-x-3">
+          <a href="" class="flex items-center space-x-3">
+            <div class="static md:absolute md:left-10 md:top-full md:-translate-y-1/2 md:z-50 group flex items-center">
+              <div
+                class="p-0 md:p-1.5 rounded-full md:bg-white/10 md:backdrop-blur-sm md:border md:border-slate-200/50 transition-all duration-500 ease-in-out group-hover:scale-105 md:group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(0,0,0,0.1)] group-hover:bg-white/20">
+                <img src="image/logo kru.png" alt="SSM Logo "
+                  class="h-20 w-20 sm:h-24 sm:w-24 md:h-36 md:w-36 object-contain rounded-full border-2 md:border-[3px] border-white shadow-sm transition-all duration-500 ease-in-out group-hover:border-blue-400 group-hover:brightness-105">
+                <div
+                  class="absolute inset-0 rounded-full border-2 border-transparent group-hover:border-blue-400/20 group-hover:scale-125 transition-all duration-700 ease-out opacity-0 group-hover:opacity-100">
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden lg:flex items-center space-x-8">
+          <!-- Home -->
+          <a href="./index.html"
+            class="nav-link text-gray-700 font-bold hover:text-[#CD1C18] transition active">Home</a>
+
+          <!-- About Dropdown -->
+          <div class="relative group">
+            <button class="flex items-center space-x-1 text-gray-700 hover:text-[#CD1C18] transition">
+              <span>About</span>
+              <i class="fas fa-chevron-down text-sm"></i>
+            </button>
+            <div
+              class="absolute left-0 mt-2 w-64 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 dropdown-enter">
+              <div class="py-2">
+                <a href="./about/Vision.html"
+                  class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Vision &
+                  Mission</a>
+                <a href="./about/value.html"
+                  class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Our
+                  Values</a>
+                <a href="./about/Approach.html"
+                  class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Our
+                  Approach</a>
+                <a href="./about/Leadership.html"
+                  class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Leadership</a>
+
+                <!-- Downloads Nested Dropdown -->
+                <div class="relative group/sub">
+                  <button
+                    class="w-full flex items-center justify-between px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">
+                    <span>Downloads</span>
+                    <i class="fas fa-chevron-right text-sm"></i>
+                  </button>
+                  <div
+                    class="absolute left-full top-0 w-64 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-300 ml-2">
+                    <div class="py-2">
+                      <!-- Certificates Nested -->
+                      <div class="relative group/sub2">
+                        <button
+                          class="w-full flex items-center justify-between px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">
+                          <span>Certificates</span>
+                          <i class="fas fa-chevron-right text-sm"></i>
+                        </button>
+                        <div
+                          class="absolute left-full top-0 w-64 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover/sub2:opacity-100 group-hover/sub2:visible transition-all duration-300 ml-2">
+                          <a href="./about/Downloads/Certificates/Registration.html"
+                            class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Registration
+                            Certificate</a>
+                          <a href="./about/Downloads/Certificates/12A.html"
+                            class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">12A
+                            Certificate</a>
+                          <a href="./about/Downloads/Certificates/80G.html"
+                            class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">80G
+                            Certificate</a>
+                          <a href="./about/Downloads/Certificates/CSR-1.html"
+                            class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">CSR-1
+                            Certificate</a>
+                        </div>
+                      </div>
+                      <a href="./about/Downloads/Audit.html"
+                        class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Audit
+                        Report</a>
+                      <a href="./about/Downloads/Residential.html"
+                        class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Residential
+                        Proof</a>
+                      <a href="./about/Downloads/Memorandum.html"
+                        class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Memorandum of
+                        Association</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Our Initiatives Dropdown -->
+          <div class="relative group">
+            <button class="flex items-center space-x-1 text-gray-700 hover:text-[#CD1C18] transition">
+              <span>Our Initiatives</span>
+              <i class="fas fa-chevron-down text-sm"></i>
+            </button>
+            <div
+              class="absolute left-0 mt-2 w-56 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 dropdown-enter">
+              <a href="./Our Initiatives/Stray-Cattle-Rescue.html"
+                class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Stray Cattle
+                Rescue</a>
+              <a href="./Our Initiatives/Feeding-Program.html"
+                class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Feeding
+                Program</a>
+              <a href="./Our Initiatives/Shelter-Management.html"
+                class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Shelter
+                Management</a>
+              <a href="./Our Initiatives/Veterinary-Care.html"
+                class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Veterinary Care</a>
+            </div>
+          </div>
+
+          <!-- Contributions Dropdown -->
+          <div class="relative group">
+            <button class="flex items-center space-x-1 text-gray-700 hover:text-[#CD1C18] transition">
+              <span>Contributions</span>
+              <i class="fas fa-chevron-down text-sm"></i>
+            </button>
+            <div
+              class="absolute left-0 mt-2 w-56 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 dropdown-enter">
+              <div class="relative group/sub">
+                <button
+                  class="w-full flex items-center justify-between px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">
+                  <span>Infrastructure</span>
+                  <i class="fas fa-chevron-right text-sm"></i>
+                </button>
+                <div
+                  class="absolute left-full top-0 w-56 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-300 ml-2">
+                  <a href="./Contributions/Infrastructure/Shelter.html"
+                    class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Shelter Area</a>
+                  <a href="./Contributions/Water.html"
+                    class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Water & Feeding</a>
+                  <a href="./Contributions/Infrastructure/Medical.html"
+                    class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Medical Care Unit</a>
+                </div>
+              </div>
+              <a href="./Contributions/Infrastructure/Succes.html"
+                class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Success Story</a>
+            </div>
+          </div>
+
+          <!--Get in Touch Dropdown -->
+          <div class="relative group">
+            <button class="flex items-center space-x-1 text-gray-700 hover:text-[#CD1C18] transition">
+              <span>Get in Touch</span>
+              <i class="fas fa-chevron-down text-sm"></i>
+            </button>
+            <div
+              class="absolute left-0 mt-2 w-56 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 dropdown-enter">
+              <a href="./Get in Touch/Get-Involved.html"
+                class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Get
+                Involved</a>
+              <a href="./Get in Touch/Contact-Us.html"
+                class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Contact
+                Us</a>
+              <a href="./Get in Touch/CSR-Partnerships.html"
+                class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">CSR
+                Partnerships</a>
+              <a href="./Get in Touch/Volunteer.html"
+                class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Volunteer</a>
+              <a href="./Get in Touch/Gallery.html" class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Gallery</a>
+              <a href="./Get in Touch/FAQ.html"
+                class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">FAQ</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Donate Button -->
+        <a href="#donate"
+          class="hidden lg:block bg-[#CD1C18] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#CD1C18] transition pulse-animation">
+          <i class="fas fa-heart mr-2"></i>Donate Now
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="lg:hidden text-2xl text-gray-700">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-white w-full max-h-[80vh] overflow-y-auto mobile-menu">
+      <div class="px-4 py-2 space-y-2">
+        <a href="./index.html" class="block py-3 text-gray-700 border-b">Home</a>
+
+        <!-- Mobile About Accordion -->
+        <div class="border-b">
+          <button class="mobile-accordion-btn w-full flex justify-between items-center py-3 text-gray-700"
+            data-target="about-mobile">
+            <span>About</span>
+            <i class="fas fa-chevron-down transition-transform"></i>
+          </button>
+          <div id="about-mobile" class="hidden pl-4 pb-3 space-y-2">
+            <a href="./about/Vision.html" class="block py-2 text-gray-600">Vision & Mission</a>
+            <a href="./about/value.html" class="block py-2 text-gray-600">Our Values</a>
+            <a href="./about/Approach.html" class="block py-2 text-gray-600">Our Approach</a>
+            <a href="./about/Leadership.html" class="block py-2 text-gray-600">Leadership</a>
+
+            <!-- Mobile Downloads -->
+            <div class="pl-4 border-l-2 border-gray-200">
+              <button class="mobile-accordion-btn w-full flex justify-between items-center py-2 text-gray-600">
+                <span>Downloads</span>
+                <i class="fas fa-chevron-down text-sm"></i>
+              </button>
+              <div class="hidden pl-4 space-y-2">
+                <div class="pl-4 border-l-2 border-gray-200">
+                  <button class="mobile-accordion-btn w-full flex justify-between items-center py-2 text-gray-600">
+                    <span>Certificates</span>
+                    <i class="fas fa-chevron-down text-sm"></i>
+                  </button>
+                  <div class="hidden pl-4 space-y-2">
+                    <a href="./about/Downloads/Certificates/Registration.html"
+                      class="block py-2 text-gray-600">Registration Certificate</a>
+                    <a href="./about/Downloads/Certificates/12A.html" class="block py-2 text-gray-600">12A
+                      Certificate</a>
+                    <a href="./about/Downloads/Certificates/80G.html" class="block py-2 text-gray-600">80G
+                      Certificate</a>
+                    <a href="./about/Downloads/Certificates/CSR-1.html" class="block py-2 text-gray-600">CSR-1
+                      Certificate</a>
+                  </div>
+                </div>
+                <a href="./about/Downloads/Audit.html" class="block py-2 text-gray-600">Audit Report</a>
+                <a href="./about/Downloads/Residential.html" class="block py-2 text-gray-600">Residential Proof</a>
+                <a href="./about/Downloads/Memorandum.html" class="block py-2 text-gray-600">Memorandum of
+                  Association</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile Our Initiatives -->
+        <div class="border-b">
+          <button class="mobile-accordion-btn w-full flex justify-between items-center py-3 text-gray-700">
+            <span>Our Initiatives</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="hidden pl-4 pb-3 space-y-2">
+            <a href="./Our Initiatives/Stray-Cattle-Rescue.html" class="block py-2 text-gray-600">Stray Cattle
+              Rescue</a>
+            <a href="./Our Initiatives/Feeding-Program.html" class="block py-2 text-gray-600">Feeding Program</a>
+            <a href="./Our Initiatives/Shelter-Management.html" class="block py-2 text-gray-600">Shelter Management</a>
+            <a href="./Our Initiatives/Veterinary-Care.html" class="block py-2 text-gray-600">Veterinary Care</a>
+          </div>
+        </div>
+
+        <!-- Mobile Contributions -->
+        <div class="border-b">
+          <button class="mobile-accordion-btn w-full flex justify-between items-center py-3 text-gray-700">
+            <span>Contributions</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="hidden pl-4 pb-3 space-y-2">
+            <div class="pl-4 border-l-2 border-gray-200">
+              <button class="mobile-accordion-btn w-full flex justify-between items-center py-2 text-gray-600">
+                <span>Infrastructure</span>
+                <i class="fas fa-chevron-down text-sm"></i>
+              </button>
+              <div class="hidden pl-4 space-y-2">
+                <a href="./Contributions/Infrastructure/Shelter.html" class="block py-2 text-gray-600">Shelter
+                  Area</a>
+                <a href="./Contributions/Water.html" class="block py-2 text-gray-600">Water & Feeding</a>
+                <a href="./Contributions/Infrastructure/Medical.html" class="block py-2 text-gray-600">Medical Care
+                  Unit</a>
+              </div>
+            </div>
+            <a href="./Contributions/Infrastructure/Succes.html" class="block py-2 text-gray-600">Success Story</a>
+          </div>
+        </div>
+
+        <!-- Mobile Get in Touch-->
+        <div class="border-b">
+          <button class="mobile-accordion-btn w-full flex justify-between items-center py-3 text-gray-700">
+            <span>Get in Touch</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="hidden pl-4 pb-3 space-y-2">
+            <a href="./Get in Touch/Get-Involved.html" class="block py-2 text-gray-600">Get Involved</a>
+            <a href="./Get in Touch/Contact-Us.html" class="block py-2 text-gray-600">Contact Us</a>
+            <a href="./Get in Touch/CSR-Partnerships.html" class="block py-2 text-gray-600">CSR Partnerships</a>
+            <a href="./Get in Touch/Volunteer.html" class="block py-2 text-gray-600">Volunteer</a>
+            <a href="./Get in Touch/Gallery.html" class="block py-2 text-gray-600">Gallery</a>
+            <a href="#" class="block py-2 text-gray-600">FAQ</a>
+          </div>
+        </div>
+
+        <a href="#donate" class="block mt-4 bg-[#FF9933] text-white text-center px-6 py-3 rounded-full font-semibold">
+          <i class="fas fa-heart mr-2"></i>Donate Now
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+<!-- ================= HERO SECTION – Eye-catching with Rotating Cow Images ================= -->
+<section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+
+  <!-- Slides -->
+  <div id="hero-slides" class="absolute inset-0 z-0">
+    <div class="absolute inset-0 bg-cover bg-center"
+      style="background-image:url('https://iskcongev.com/wp-content/uploads/2023/02/about-goshala-2.jpg'); opacity:1;">
+    </div>
+    <div class="absolute inset-0 bg-cover bg-center"
+      style="background-image:url('https://saveindiancows.org/wp-content/uploads/2022/03/Gallery1000X700.jpg'); opacity:0;">
+    </div>
+    <div class="absolute inset-0 bg-cover bg-center"
+      style="background-image:url('https://www.bvashram.org/wp-content/uploads/2021/02/goshala-16.jpg'); opacity:0;">
+    </div>
+    <div class="absolute inset-0 bg-cover bg-center"
+      style="background-image:url('https://www.jivdayatrust.org/wp-content/uploads/2020/05/DSC_2214-1024x682.jpg'); opacity:0;">
+    </div>
+  </div>
+
+  <!-- Overlay -->
+  <div class="absolute inset-0 z-[1]"
+    style="background: linear-gradient(135deg, rgba(205,28,24,0.6) 0%, rgba(0,0,0,0.7) 60%, rgba(255,153,51,0.4) 100%);">
+  </div>
+
+  <!-- Pattern overlay -->
+  <div class="absolute inset-0 z-[2] opacity-10"
+    style="background-image:radial-gradient(circle, #fff 1px, transparent 1px); background-size:32px 32px;"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 text-center text-white max-w-5xl mx-auto px-6 py-32">
+    <div class="fade-up fade-up-1">
+      <span
+        class="inline-block bg-[#FFDE21] text-[#1a1a1a] text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-widest mb-6">
+        🐄 कृष्णाई गौशाळा Trust – Jamod, Maharashtra
+      </span>
+    </div>
+    <h1 class="hero-text playfair font-black leading-tight mb-6 fade-up fade-up-2" style="font-size: clamp(2.4rem, 6vw, 5rem);">
+      Protecting <span class="text-[#FFDE21]">Gau Mata</span><br>with Devotion &amp; Love
+    </h1>
+    <p class="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-10 font-medium leading-relaxed fade-up fade-up-3">
+      Rescuing injured &amp; stray cows, giving them lifelong care, food, shelter &amp; medical love since 2017. Registered trust with 80G tax exemption.
+    </p>
+    <div class="flex flex-wrap justify-center gap-4 fade-up fade-up-4">
+      <a href="donate.html"
+        class="flex items-center gap-2 bg-[#CD1C18] hover:bg-[#a81512] text-white px-8 py-4 rounded-full font-bold text-base shadow-2xl hover:scale-105 transition pulse">
+        <i class="fas fa-heart"></i> Donate & Save Gau Mata
+      </a>
+      <a href="connect/volunteer.html"
+        class="flex items-center gap-2 bg-white/20 hover:bg-white/30 backdrop-blur text-white border border-white/40 px-8 py-4 rounded-full font-bold text-base hover:scale-105 transition">
+        <i class="fas fa-hand-holding-heart"></i> Join as Volunteer
+      </a>
+      <a href="connect/contact-us.html"
+        class="flex items-center gap-2 bg-[#FFDE21] hover:bg-yellow-300 text-[#1a1a1a] px-8 py-4 rounded-full font-bold text-base hover:scale-105 transition">
+        <i class="fas fa-paw"></i> Visit Goshala
+      </a>
+    </div>
+    <p class="mt-8 text-white/70 text-sm">100% of your contribution goes to Gau Seva • Trusted since 2017 • Tax Benefit
+      under 80G</p>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce">
+    <i class="fas fa-chevron-down text-white text-2xl opacity-70"></i>
+  </div>
+
+  <!-- Slide dots -->
+  <div class="absolute bottom-16 left-1/2 -translate-x-1/2 z-10 flex gap-2" id="hero-dots"></div>
+</section>
+
+</div>
+</section>
+
+
+<!-- ================= IMPACT SECTION ================= -->
+<section id="impact" class="py-24 bg-white relative">
+  <div class="absolute inset-0 opacity-[0.03] pointer-events-none"
+    style="background-image: radial-gradient(#CD1C18 1px, transparent 1px); background-size: 20px 20px;"></div>
+
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+
+    <div class="flex flex-col md:flex-row items-end justify-between mb-16 gap-6">
+      <div class="text-left">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="w-12 h-1 bg-[#CD1C18]"></span>
+          <span class="text-[#CD1C18] font-black uppercase tracking-[0.2em] text-sm">Real Results</span>
+        </div>
+        <h2 class="heading-font text-5xl md:text-6xl font-black text-black leading-tight">
+          Our Contribution & <span class="bg-[#FFDE21] px-4 italic">Service</span>
+        </h2>
+      </div>
+      <p class="text-gray-600 max-w-md text-lg font-medium border-l-4 border-[#CD1C18] pl-6">
+        Dedicated to social change and community welfare across Amravati through transparent and direct action.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <div
+        class="group relative bg-white p-10 border-2 border-black shadow-[8px_8px_0px_0px_rgba(205,28,24,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all duration-300">
+        <div
+          class="absolute -top-5 -right-5 w-12 h-12 bg-[#FFDE21] border-2 border-black flex items-center justify-center rotate-12 group-hover:rotate-0 transition-transform z-20">
+          <i class="fas fa-paw text-black text-xl"></i>
+        </div>
+        <div class="counter-number text-6xl font-black text-black mb-2 leading-none" data-target="750">0</div>
+        <p class="font-black text-[#CD1C18] uppercase tracking-tighter text-xl">Cows Protected</p>
+      </div>
+
+      <div
+        class="group relative bg-[#CD1C18] p-10 border-2 border-black shadow-[8px_8px_0px_0px_rgba(255,222,33,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all duration-300">
+        <div
+          class="absolute -top-5 -right-5 w-12 h-12 bg-white border-2 border-black flex items-center justify-center -rotate-12 group-hover:rotate-0 transition-transform z-20">
+          <i class="fas fa-award text-[#CD1C18] text-xl"></i>
+        </div>
+        <div class="counter-number text-6xl font-black text-white mb-2 leading-none" data-target="10">0</div>
+        <p class="font-black text-[#FFDE21] uppercase tracking-tighter text-xl">Years of Service</p>
+      </div>
+
+      <div
+        class="group relative bg-white p-10 border-2 border-black shadow-[8px_8px_0px_0px_rgba(205,28,24,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all duration-300">
+        <div
+          class="absolute -top-5 -right-5 w-12 h-12 bg-[#FFDE21] border-2 border-black flex items-center justify-center rotate-6 group-hover:rotate-0 transition-transform z-20">
+          <i class="fas fa-hand-holding-heart text-black text-xl"></i>
+        </div>
+        <div class="counter-number text-6xl font-black text-black mb-2 leading-none" data-target="1000">0</div>
+        <p class="font-black text-[#CD1C18] uppercase tracking-tighter text-xl">Supporters</p>
+      </div>
+
+      <div
+        class="group relative bg-black p-10 border-2 border-black shadow-[8px_8px_0px_0px_rgba(255,222,33,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all duration-300">
+        <div
+          class="absolute -top-5 -right-5 w-12 h-12 bg-[#CD1C18] border-2 border-black flex items-center justify-center -rotate-6 group-hover:rotate-0 transition-transform z-20">
+          <i class="fas fa-clock text-white text-xl"></i>
+        </div>
+        <div class="counter-number text-6xl font-black text-[#FFDE21] mb-2 leading-none" data-target="24">0</div>
+        <p class="font-black text-white uppercase tracking-tighter text-xl">Hours Care</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WHAT WE DO ===================== -->
+<section id="services" class="py-20 bg-[#FFF9F0] reveal">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-14">
+      <span class="inline-flex items-center gap-2 text-[#CD1C18] font-black uppercase tracking-widest text-xs mb-4">
+        <span class="w-8 h-0.5 bg-[#CD1C18]"></span> Our Work <span class="w-8 h-0.5 bg-[#CD1C18]"></span>
+      </span>
+      <h2 class="playfair text-4xl md:text-5xl font-black text-gray-900">What We <span class="text-[#CD1C18]">Do</span></h2>
+      <p class="mt-4 text-gray-600 max-w-xl mx-auto">Every day, our team works tirelessly to serve, protect, and heal Gau Mata with love and devotion.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Card 1 -->
+      <div class="service-card bg-white p-7 rounded-2xl border border-gray-100 shadow-md group">
+        <div class="w-14 h-14 rounded-xl bg-red-50 flex items-center justify-center mb-5 group-hover:bg-[#CD1C18] transition">
+          <i class="fas fa-truck text-2xl text-[#CD1C18] group-hover:text-white transition"></i>
+        </div>
+        <h3 class="font-black text-gray-900 text-lg mb-3">Stray Cattle Rescue</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">24/7 emergency rescue of injured, abandoned and road-accident cows across Buldhana district.</p>
+        <a href="services/stray-cattle-rescue.html" class="mt-4 inline-flex items-center gap-1 text-[#CD1C18] font-bold text-sm hover:gap-2 transition">Learn More <i class="fas fa-arrow-right text-xs"></i></a>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="service-card bg-white p-7 rounded-2xl border border-gray-100 shadow-md group">
+        <div class="w-14 h-14 rounded-xl bg-orange-50 flex items-center justify-center mb-5 group-hover:bg-[#FF9933] transition">
+          <i class="fas fa-seedling text-2xl text-[#FF9933] group-hover:text-white transition"></i>
+        </div>
+        <h3 class="font-black text-gray-900 text-lg mb-3">Feeding Program</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">Daily green fodder, nutritious supplements, and clean water for all 750+ cows in our care.</p>
+        <a href="services/feeding-program.html" class="mt-4 inline-flex items-center gap-1 text-[#CD1C18] font-bold text-sm hover:gap-2 transition">Learn More <i class="fas fa-arrow-right text-xs"></i></a>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="service-card bg-white p-7 rounded-2xl border border-gray-100 shadow-md group">
+        <div class="w-14 h-14 rounded-xl bg-green-50 flex items-center justify-center mb-5 group-hover:bg-[#2E7D32] transition">
+          <i class="fas fa-home text-2xl text-[#2E7D32] group-hover:text-white transition"></i>
+        </div>
+        <h3 class="font-black text-gray-900 text-lg mb-3">Shelter Management</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">Safe, ventilated, and hygienic shelter area spread over acres — a true home for rescued Gau Mata.</p>
+        <a href="services/shelter-management.html" class="mt-4 inline-flex items-center gap-1 text-[#CD1C18] font-bold text-sm hover:gap-2 transition">Learn More <i class="fas fa-arrow-right text-xs"></i></a>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="service-card bg-white p-7 rounded-2xl border border-gray-100 shadow-md group">
+        <div class="w-14 h-14 rounded-xl bg-blue-50 flex items-center justify-center mb-5 group-hover:bg-blue-600 transition">
+          <i class="fas fa-stethoscope text-2xl text-blue-600 group-hover:text-white transition"></i>
+        </div>
+        <h3 class="font-black text-gray-900 text-lg mb-3">Veterinary Care</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">Regular checkups, emergency treatment, and complete rehabilitation by qualified veterinary doctors.</p>
+        <a href="services/veterinary-care.html" class="mt-4 inline-flex items-center gap-1 text-[#CD1C18] font-bold text-sm hover:gap-2 transition">Learn More <i class="fas fa-arrow-right text-xs"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================= GALLERY (HOME) ================= -->
+<section id="gallery" class="py-24 bg-white relative overflow-hidden">
+  <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-[#FFDE21]/20 rounded-full blur-3xl"></div>
+
+  <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+
+    <div class="mb-16">
+      <h2 class="heading-font text-5xl md:text-6xl font-black text-black inline-block relative">
+        Our Gaushala <span class="text-[#CD1C18]">Gallery</span>
+        <svg class="absolute -bottom-4 left-0 w-full h-4" viewBox="0 0 100 10" preserveAspectRatio="none">
+          <path d="M0 5 Q 25 0, 50 5 T 100 5" stroke="#FFDE21" stroke-width="4" fill="none" />
+        </svg>
+      </h2>
+      <p class="mt-8 text-gray-600 font-bold uppercase tracking-widest text-sm italic">
+        A glimpse of our service and care for Gaumata
+      </p>
+    </div>
+
+    <div class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+
+      <div
+        class="break-inside-avoid group relative p-3 bg-white border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(205,28,24,1)] transition-all duration-300 transform hover:-rotate-1">
+        <img src="https://saveindiancows.org/wp-content/uploads/2018/11/Goshala-1024x683.jpeg"
+          class="w-full grayscale group-hover:grayscale-0 transition-all duration-500 rounded-sm" alt="Gaushala Care">
+        <div class="mt-3 text-left">
+          <span class="text-[10px] font-black bg-[#FFDE21] px-2 py-1 uppercase">Daily Feeding</span>
+        </div>
+      </div>
+
+      <div
+        class="break-inside-avoid group relative p-3 bg-white border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(205,28,24,1)] transition-all duration-300 transform hover:rotate-1">
+        <img src="https://primary-assets.heartfulness.org/donation-assets/G_Feature_Banner_f139305747.png"
+          class="w-full grayscale group-hover:grayscale-0 transition-all duration-500 rounded-sm" alt="Cows">
+        <div class="mt-3 text-left">
+          <span class="text-[10px] font-black bg-[#CD1C18] text-white px-2 py-1 uppercase">Sanctuary</span>
+        </div>
+      </div>
+
+      <div
+        class="break-inside-avoid group relative p-3 bg-white border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(205,28,24,1)] transition-all duration-300 transform hover:-rotate-1">
+        <img src="image\c.png" class="w-full grayscale group-hover:grayscale-0 transition-all duration-500 rounded-sm"
+          alt="Feeding">
+        <div class="mt-3 text-left">
+          <span class="text-[10px] font-black bg-[#FFDE21] px-2 py-1 uppercase">Community Service</span>
+        </div>
+      </div>
+
+      <div
+        class="break-inside-avoid group relative p-3 bg-white border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(205,28,24,1)] transition-all duration-300 transform hover:rotate-2">
+        <img src="https://www.jivdayatrust.org/wp-content/uploads/2020/05/DSC_2214-1024x682.jpg"
+          class="w-full grayscale group-hover:grayscale-0 transition-all duration-500 rounded-sm" alt="Care">
+        <div class="mt-3 text-left">
+          <span class="text-[10px] font-black bg-[#CD1C18] text-white px-2 py-1 uppercase">Medical Aid</span>
+        </div>
+      </div>
+
+      <div
+        class="break-inside-avoid group relative p-3 bg-white border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(205,28,24,1)] transition-all duration-300 transform hover:-rotate-2">
+        <img src="https://saveindiancows.org/wp-content/uploads/2019/01/cow-feed-bannana-1024x720.jpg"
+          class="w-full grayscale group-hover:grayscale-0 transition-all duration-500 rounded-sm" alt="Happy Cows">
+        <div class="mt-3 text-left">
+          <span class="text-[10px] font-black bg-[#FFDE21] px-2 py-1 uppercase">Donation Impact</span>
+        </div>
+      </div>
+
+      <div
+        class="break-inside-avoid group relative p-3 bg-white border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(205,28,24,1)] transition-all duration-300 transform hover:rotate-1">
+        <img src="https://www.jivdayatrust.org/wp-content/uploads/2020/05/IMG20200130WA0027.jpg"
+          class="w-full grayscale group-hover:grayscale-0 transition-all duration-500 rounded-sm" alt="Shelter">
+        <div class="mt-3 text-left">
+          <span class="text-[10px] font-black bg-[#CD1C18] text-white px-2 py-1 uppercase">Safe Space</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="mt-16">
+      <a href="#contact"
+        class="inline-block bg-black text-white font-black px-10 py-4 border-2 border-black hover:bg-[#FFDE21] hover:text-black transition-all shadow-[6px_6px_0px_0px_rgba(205,28,24,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 uppercase tracking-widest">
+        Visit Our Gaushala
+      </a>
+    </div>
+  </div>
+</section>
+<!-- ================= INFRASTRUCTURE SECTION ================= -->
+<section id="shelter-area" class="py-20 bg-[#FFF9F0]">
+  <div class="max-w-7xl mx-auto px-4 text-center">
+
+    <h2 class="text-4xl md:text-5xl font-bold text-[#CD1C18] mb-12">
+      Our Gaushala Infrastructure
+    </h2>
+
+    <div class="grid md:grid-cols-3 gap-10">
+
+      <!-- Shelter Area -->
+      <div class="bg-white p-6 rounded-2xl shadow-lg card-hover">
+        <img src="https://saveindiancows.org/wp-content/uploads/2018/11/Goshala-1024x683.jpeg"
+          class="rounded-xl mb-4 h-56 w-full object-cover">
+        <h3 class="text-2xl font-bold text-[#2E7D32] mb-2">Spacious Shelter Area</h3>
+        <p class="text-gray-600">Clean, ventilated and protected shelter providing safe living space for rescued cows.
+        </p>
+      </div>
+
+      <!-- Water & Feeding -->
+      <div id="water-feeding" class="bg-white p-6 rounded-2xl shadow-lg card-hover">
+        <img src="https://saveindiancows.org/wp-content/uploads/2019/01/cow-feed-bannana-1024x720.jpg"
+          class="rounded-xl mb-4 h-56 w-full object-cover">
+        <h3 class="text-2xl font-bold text-[#2E7D32] mb-2">Water & Feeding System</h3>
+        <p class="text-gray-600">Daily green fodder, nutrition, and clean water facilities for healthy cow care.</p>
+      </div>
+
+      <!-- Medical Unit -->
+      <div id="medical-unit" class="bg-white p-6 rounded-2xl shadow-lg card-hover">
+        <img src="https://www.jivdayatrust.org/wp-content/uploads/2020/05/IMG20200130WA0027.jpg"
+          class="rounded-xl mb-4 h-56 w-full object-cover">
+        <h3 class="text-2xl font-bold text-[#2E7D32] mb-2">Medical Care Unit</h3>
+        <p class="text-gray-600">Regular veterinary treatment, emergency care, and rehabilitation for injured cows.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= SUCCESS STORY SECTION ================= -->
+<section id="success-story" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+
+    <div>
+      <img src="https://www.jivdayatrust.org/wp-content/uploads/2020/05/DSC_2214-1024x682.jpg"
+        class="rounded-3xl shadow-2xl w-full h-[400px] object-cover">
+    </div>
+
+    <div>
+      <h2 class="text-4xl md:text-5xl font-bold text-[#CD1C18] mb-6">
+        A Life Saved – Our Success Story 🐄
+      </h2>
+      <p class="text-lg text-gray-600 mb-6">
+        A severely injured stray cow was rescued from the roadside and brought to our gaushala. With continuous medical
+        care, nutrition, and love, she fully recovered and now lives safely under our protection.
+      </p>
+      <p class="text-lg text-gray-600 mb-8">
+        This is just one of the hundreds of lives saved by Krushnai Goshala Trust through compassion, seva, and
+        dedicated cow protection efforts.
+      </p>
+
+      <a href="#donate"
+        class="bg-[#CD1C18] text-white px-8 py-4 rounded-full font-bold shadow-lg hover:scale-105 transition">
+        Support More Rescues ❤️
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= DONATION CTA (HOME) ================= -->
+<section id="donate" class="py-20 gradient-bg text-center text-white">
+  <div class="max-w-4xl mx-auto px-6">
+
+    <h2 class="text-4xl md:text-5xl font-bold mb-6">
+      Support Gau Mata Today 🐄
+    </h2>
+
+    <p class="text-lg md:text-xl mb-10">
+      Your donation helps provide food, shelter, and medical care to rescued cows at Krushnai Goshala Trust, Jamod.
+    </p>
+
+    <a href="#contact" class="inline-block bg-white text-[#CD1C18] px-10 py-4 rounded-full 
+       font-bold text-lg shadow-xl hover:scale-110 hover:shadow-2xl transition pulse-animation">
+      <i class="fas fa-heart mr-2"></i> Donate Now & Save Lives
+    </a>
+
+  </div>
+</section>
+
+ <!-- ========== Footer ========== -->
+    <footer class="bg-[#1a1a1a] text-gray-400 font-inter">
+        <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+
+                <div class="space-y-6">
+                    <div class="flex items-center space-x-4">
+                        <img src="image\logo kru.png" alt="SSM Logo"
+                            class="h-14 w-14 rounded-full border-2 border-gray-700 shadow-xl">
+                        <div class="leading-tight">
+                            <span class="block font-black text-lg text-[#FFDE21] tracking-tight">Krushnai Goshala Trust
+                            </span>
+                            <span
+                                class="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mt-1">कृष्णाई
+                                गोशाळा ट्रस्ट
+                                जामोद, महाराष्ट्र</span>
+                        </div>
+                    </div>
+                    <p class="text-sm leading-relaxed">
+                        Krushnai Goshala Trust, Jamod compassionately rescues, shelters, feeds, and provides lifelong
+                        care to stray,
+                        injured, and abandoned cows.
+                    </p>
+                    <div class="flex space-x-5 pt-2">
+                        <a href="" class="hover:text-[#1877F2] transition-colors duration-300"><i
+                                class="fab fa-facebook-f text-lg"></i></a>
+                        <a href="" class="hover:text-[#E4405F] transition-colors duration-300"><i
+                                class="fab fa-instagram text-lg"></i></a>
+                        <a href="" class="hover:text-[#0A66C2] transition-colors duration-300"><i
+                                class="fab fa-linkedin-in text-lg"></i></a>
+                        <a href="" class="hover:text-[#FF0000] transition-colors duration-300"><i
+                                class="fab fa-youtube text-lg"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3
+                        class="text-xs font-black text-white tracking-widest uppercase mb-6 border-l-4 border-[#CD1C18] pl-4">
+                        Quick
+                        Links</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="./index.html" data-page="home"
+                                class="hover:text-[#FFDE21] transition-colors ">Home</a></li>
+                        <li><a href="./about/Vision.html" data-page="about-overview"
+                                class="hover:text-[#FFDE21] transition-colors ">About Us</a></li>
+                       
+                        <li><a href="./Get in Touch/CSR-Partnerships.html" data-page="involved-csr"
+                                class="hover:text-[#FFDE21] transition-colors ">CSR Partnerships</a></li>
+                        <li><a href="./Get in Touch/Volunteer.html" data-page="impact-volunteer"
+                                class="hover:text-[#FFDE21] transition-colors ">Volunteer</a></li>
+                        <li><a href="./Get in Touch/Get-Involved.html" data-page="impact-gaushala"
+                                class="hover:text-[#FFDE21] transition-colors ">Our Gaushala</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3
+                        class="text-xs font-black text-white tracking-widest uppercase mb-6 border-l-4 border-[#CD1C18] pl-4">
+                        Connect</h3>
+                    <ul class="space-y-3 text-sm">
+                        <!-- <li><a href="#" data-page="involved-involved" class="hover:text-[#f6570e] transition-colors nav-link">get-involved</a></li> -->
+                        <li><a href="./donate.html" data-page="involved-donate"
+                                class="hover:text-[#FFDE21] transition-colors ">Support a Cause</a></li>
+                        <li><a href="./Get in Touch/Contact-Us.html" data-page="connect-contact"
+                                class="hover:text-[#FFDE21] transition-colors ">Contact Our Team</a></li>
+                        <li><a href="./Get in Touch/Gallery.html" data-page="connect-gallery"
+                                class="hover:text-[#FFDE21] transition-colors ">Gallery</a></li>
+                        <li><a href="./Get in Touch/FAQ.html" data-page="involved-faq"
+                                class="hover:text-[#FFDE21] transition-colors ">Donation FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3
+                        class="text-xs font-black text-white tracking-widest uppercase mb-6 border-l-4 border-[#CD1C18] pl-4">
+                        Contact Info</h3>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-4 text-[#CD1C18]"></i>
+                            <span class="text-gray-300">Head Office: Krushnai Goshala Trust,
+                                Gut No. 75 Įonkhel Chalthana Road Jamod, Ta. Jalgaon,
+                                Dist. Buldhana, 443402 (Maharashtra) </span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-4 text-[#CD1C18]"></i>
+                            <span class="text-gray-300">+91 9860562929, +91 9011919575, +91 9970932315</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-4 text-[#CD1C18]"></i>
+                            <span class="text-white font-bold">krushnaigoshala2017@gmail.com </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-12 pt-8 border-t border-gray-700">
+                <h4 class="text-sm font-semibold text-white tracking-wider uppercase mb-6 text-center">Trust
+                    Certificates</h4>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <a href="./about/Downloads/Certificates/80G.html"
+                        class="text-center p-4 bg-gray-700/50 rounded-lg hover:bg-gray-700 transition-colors cursor-pointer">
+                        <div class="text-lg font-bold text-white mb-1">80G</div>
+                        <div class="text-xs text-gray-400">Tax Exemption</div>
+                    </a>
+                    <a href="./about/Downloads/Certificates/12A.html"
+                        class="text-center p-4 bg-gray-700/50 rounded-lg hover:bg-gray-700 transition-colors cursor-pointer">
+                        <div class="text-lg font-bold text-white mb-1">12A</div>
+                        <div class="text-xs text-gray-400">Registered Trust</div>
+                    </a>
+                    <a href="./about/Downloads/Certificates/CSR-1.html"
+                        class="text-center p-4 bg-gray-700/50 rounded-lg hover:bg-gray-700 transition-colors cursor-pointer">
+                        <div class="text-lg font-bold text-white mb-1">CSR-1</div>
+                        <div class="text-xs text-gray-400">CSR Compliance</div>
+                    </a>
+                    <a href="./about/Downloads/Audit.html"
+                        class="text-center p-4 bg-gray-700/50 rounded-lg hover:bg-gray-700 transition-colors cursor-pointer">
+                        <div class="text-lg font-bold text-white mb-1">FAR</div>
+                        <div class="text-xs text-gray-400">Financial Audit Report </div>
+                    </a>
+                </div>
+            </div>
+
+
+            <div class="mt-16 pt-8 border-t border-gray-800 text-center">
+                <p class="text-[10px] font-bold text-gray-600 uppercase tracking-widest leading-relaxed">
+                    © 2026 Krushnai Goshala Trust. All Rights Reserved. <class="md:hidden" Registered under Bombay
+                        Public Trust Act, 1950.>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+<!-- AUTO POPUP WITH IMAGE (6s Delay) -->
+<div id="autoPopup" class="fixed inset-0 bg-black/70 backdrop-blur-sm hidden items-center justify-center z-50 p-4">
+
+  <!-- Popup Box -->
+  <div class="relative max-w-3xl w-full bg-white rounded-2xl overflow-hidden 
+              border-4 border-black shadow-[10px_10px_0px_0px_rgba(205,28,24,1)] animate-popup">
+
+    <!-- Close Button -->
+    <button onclick="closePopup()" class="absolute top-3 right-3 w-10 h-10 bg-[#CD1C18] text-white 
+             border-2 border-black rounded-full font-bold hover:scale-110 transition z-10">
+      <i class="fas fa-times"></i>
+    </button>
+
+    <div class="grid md:grid-cols-2 items-center">
+
+      <!-- LEFT SIDE IMAGE -->
+      <div class="h-64 md:h-full">
+        <img src="./image\c2.png" alt="Goshala Cow Care" class="w-full h-full object-cover">
+      </div>
+
+      <!-- RIGHT SIDE CONTENT -->
+      <div class="p-8 md:p-10 text-center md:text-left">
+
+        <!-- Icon -->
+        <div class="text-4xl text-[#CD1C18] mb-3">
+          <i class="fas fa-cow"></i>
+        </div>
+
+        <!-- Heading -->
+        <h2 class="text-2xl md:text-3xl font-black text-[#2E7D32] mb-4">
+          Save Gau Mata, Support Goshala 🐄
+        </h2>
+
+        <!-- Description -->
+        <p class="text-gray-700 text-lg mb-6 leading-relaxed">
+          Krushnai Goshala Trust, Jamod rescues, feeds, and provides lifelong care
+          to abandoned, injured, and stray cows with compassion and devotion.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
+
+          <a href="/donate.html" class="bg-[#FF9933] hover:bg-[#CD1C18] text-white font-bold 
+                    px-6 py-3 rounded-full shadow-xl hover:scale-105 transition">
+            <i class="fas fa-heart mr-2"></i> Donate Now
+          </a>
+
+          <a href="./Get in Touch/Contact-Us.html" class="border-2 border-[#2E7D32] text-[#2E7D32] font-bold 
+                    px-6 py-3 rounded-full hover:bg-[#2E7D32] hover:text-white transition">
+            <i class="fas fa-hands-helping mr-2"></i> Visit Goshala
+          </a>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

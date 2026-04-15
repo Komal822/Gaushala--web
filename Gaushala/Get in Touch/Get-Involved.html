@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Involved – Krushnai Goshala Trust</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    * { font-family: 'Poppins', sans-serif; }
+    html { scroll-behavior: smooth; }
+
+    .glass-effect {
+      background: rgba(255,255,255,0.25);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+    .gradient-bg {
+      background: linear-gradient(135deg, #FF9933 0%, #CD1C18 50%, #FFE6CC 100%);
+    }
+    .card-hover { transition: all 0.3s ease; }
+    .card-hover:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+
+    .pulse-animation { animation: pulse 2.5s infinite ease-in-out; }
+    @keyframes pulse { 0%,100%{transform:scale(1);} 50%{transform:scale(1.05);} }
+
+    .dropdown-enter { animation: slideDown 0.3s ease; }
+    @keyframes slideDown {
+      from{opacity:0;transform:translateY(-10px);}
+      to  {opacity:1;transform:translateY(0);}
+    }
+    .mobile-menu { transition: all 0.3s ease; }
+    .nav-link.active { color:#CD1C18; font-weight:600; }
+
+    @keyframes fadeInUp { from{opacity:0;transform:translateY(30px);} to{opacity:1;transform:translateY(0);} }
+    .animate-fade-in { animation: fadeInUp 1.2s ease-out forwards; }
+
+    @keyframes beat { 0%,100%{transform:scale(1);} 50%{transform:scale(1.3);} }
+    .group:hover .animate-beat { animation: beat 0.8s infinite; }
+
+    @keyframes popupFade {
+      0%  {opacity:0;transform:scale(0.85) translateY(40px);}
+      100%{opacity:1;transform:scale(1) translateY(0);}
+    }
+    .animate-popup { animation: popupFade 0.5s ease-out; }
+
+    .playfair     { font-family: 'Playfair Display', serif; }
+    .heading-font { font-family: 'Playfair Display', serif; }
+
+    @keyframes fadeUp { from{opacity:0;transform:translateY(30px);} to{opacity:1;transform:translateY(0);} }
+    .fade-up   { animation: fadeUp 0.8s ease forwards; opacity:0; }
+    .fade-up-1 { animation-delay:0.1s; }
+    .fade-up-2 { animation-delay:0.3s; }
+    .fade-up-3 { animation-delay:0.5s; }
+    .fade-up-4 { animation-delay:0.7s; }
+
+    .page-hero {
+      background:
+        linear-gradient(135deg, rgba(205,28,24,0.85) 0%, rgba(0,0,0,0.85) 100%),
+        url('https://iskcongev.com/wp-content/uploads/2023/02/about-goshala-2.jpg') center/cover no-repeat;
+    }
+
+    .contact-input { transition: border-color 0.3s, box-shadow 0.3s; }
+    .contact-input:focus {
+      outline: none;
+      border-color: #CD1C18;
+      box-shadow: 0 0 0 3px rgba(205,28,24,0.12);
+    }
+
+    .whatsapp-float {
+      position:fixed; bottom:28px; right:28px; z-index:999;
+      animation: pulse 2.5s infinite ease-in-out;
+    }
+
+    /* Way card hover glow */
+    .way-card {
+      transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+    }
+    .way-card:hover {
+      transform: translateY(-6px) scale(1.02);
+    }
+
+    /* Tab active */
+    .tab-btn.active {
+      background: #CD1C18;
+      color: #fff;
+      border-color: #CD1C18;
+    }
+  </style>
+</head>
+
+<!-- ========== Header / Navigation ========== -->
+<header class="bg-white/95 backdrop-blur-sm shadow-md fixed top-0 left-0 right-0 z-50 border-b border-gray-100">
+  <div class="bg-[#1a1a1a] text-gray-400 py-2 border-b border-gray-800 hidden lg:block">
+    <div
+      class="mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center text-[11px] font-bold uppercase tracking-wider">
+      <div class="flex items-center space-x-6">
+        <span class="flex items-center">
+          <i class="fas fa-map-marker-alt mr-2 text-[#f6570e]"></i> Jalgaon, India
+        </span>
+        <span class="flex items-center">
+          <i class="far fa-clock mr-2 text-[#f6570e]"></i> Mon - Sat : 10.00 AM - 06.00 PM
+        </span>
+      </div>
+
+      <div class="flex items-center space-x-6">
+        <a href="tel:+919209092150" class="hover:text-white transition-colors">
+          <i class="fas fa-phone-alt mr-2 text-[#f6570e]"></i>Contact us : +91 9860562929, +91 9011919575,
+          +91
+          9970932315
+        </a>
+        <a href="mailto:krushnaigoshala2017@gmail.com" class="hover:text-white transition-colors lowercase">
+          <i class="fas fa-envelope mr-2 text-[#f6570e]"></i> krushnaigoshala2017@gmail.com
+        </a>
+
+        <!-- SOCIAL ICONS -->
+        <div class="flex items-center space-x-3 border-l border-gray-700 pl-4">
+          <a href="" class="hover:text-sky-400" title="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="" class="hover:text-[#E4405F]" title="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="" class="hover:text-[#0A66C2]" title="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="" class="hover:text-red-500" title="YouTube">
+            <i class="fab fa-youtube"></i>
+          </a>
+          <!-- <a href="#" class="hover:text-sky-400" title="Twitter / X">
+                    <i class="fab fa-twitter"></i> -->
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Navbar -->
+  <nav class="glass-effect">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        <!-- Logo -->
+        <div class="flex items-center space-x-3">
+          <a href="" class="flex items-center space-x-3">
+            <div class="static md:absolute md:left-10 md:top-full md:-translate-y-1/2 md:z-50 group flex items-center">
+              <div
+                class="p-0 md:p-1.5 rounded-full md:bg-white/10 md:backdrop-blur-sm md:border md:border-slate-200/50 transition-all duration-500 ease-in-out group-hover:scale-105 md:group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(0,0,0,0.1)] group-hover:bg-white/20">
+                <img src="../image/logo kru.png" alt="SSM Logo "
+                  class="h-20 w-20 sm:h-24 sm:w-24 md:h-36 md:w-36 object-contain rounded-full border-2 md:border-[3px] border-white shadow-sm transition-all duration-500 ease-in-out group-hover:border-blue-400 group-hover:brightness-105">
+                <div
+                  class="absolute inset-0 rounded-full border-2 border-transparent group-hover:border-blue-400/20 group-hover:scale-125 transition-all duration-700 ease-out opacity-0 group-hover:opacity-100">
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden lg:flex items-center space-x-8">
+          <!-- Home -->
+          <a href="../index.html"
+            class=" text-gray-700 font-bold hover:text-[#CD1C18] transition ">Home</a>
+
+          <!-- About Dropdown -->
+          <div class="relative group">
+            <button class="flex items-center space-x-1 text-gray-700 hover:text-[#CD1C18] transition">
+              <span>About</span>
+              <i class="fas fa-chevron-down text-sm"></i>
+            </button>
+            <div
+              class="absolute left-0 mt-2 w-64 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 dropdown-enter">
+              <div class="py-2">
+                <a href="../about/Vision.html"
+                  class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Vision
+                  &
+                  Mission</a>
+                <a href="../about/value.html"
+                  class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Our
+                  Values</a>
+                <a href="../about/Approach.html"
+                  class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Our
+                  Approach</a>
+                <a href="../about/Leadership.html"
+                  class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Leadership</a>
+
+                <!-- Downloads Nested Dropdown -->
+                <div class="relative group/sub">
+                  <button
+                    class="w-full flex items-center justify-between px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">
+                    <span>Downloads</span>
+                    <i class="fas fa-chevron-right text-sm"></i>
+                  </button>
+                  <div
+                    class="absolute left-full top-0 w-64 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-300 ml-2">
+                    <div class="py-2">
+                      <!-- Certificates Nested -->
+                      <div class="relative group/sub2">
+                        <button
+                          class="w-full flex items-center justify-between px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">
+                          <span>Certificates</span>
+                          <i class="fas fa-chevron-right text-sm"></i>
+                        </button>
+                        <div
+                          class="absolute left-full top-0 w-64 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover/sub2:opacity-100 group-hover/sub2:visible transition-all duration-300 ml-2">
+                          <a href="../about/Downloads/Certificates/Registration.html"
+                            class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Registration
+                            Certificate</a>
+                          <a href="../about/Downloads/Certificates/12A.html"
+                            class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">12A
+                            Certificate</a>
+                          <a href="../about/Downloads/Certificates/80G.html"
+                            class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">80G
+                            Certificat/>
+                            <a href="../about/Downloads/Certificates/CSR-1.html"
+                              class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">CSR-1
+                              Certificate</a>
+                        </div>
+                      </div>
+                      <a href="../about/Downloads/Audit.html"
+                        class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Audit
+                        Report</a>
+                      <a href="../about/Downloads/Residential.html"
+                        class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Residential
+                        Proof</a>
+                      <a href="../about/Downloads/Memorandum.html"
+                        class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Memorandum
+                        of
+                        Association</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Our Initiatives Dropdown -->
+          <div class="relative group">
+            <button class="flex items-center space-x-1 text-gray-700 hover:text-[#CD1C18] transition">
+              <span>Our Initiatives</span>
+              <i class="fas fa-chevron-down text-sm"></i>
+            </button>
+            <div
+              class="absolute left-0 mt-2 w-56 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 dropdown-enter">
+              <a href="../Our Initiatives/Stray-Cattle-Rescue.html"
+                class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Stray
+                Cattle
+                Rescue</a>
+              <a href="../Our Initiatives/Feeding-Program.html"
+                class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Feeding
+                Program</a>
+              <a href="../Our Initiatives/Shelter-Management.html"
+                class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Shelter
+                Management</a>
+              <a href="../Our Initiatives/Veterinary-Care.html"
+                class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Veterinary
+                Care</a>
+            </div>
+          </div>
+
+          <!-- Contributions Dropdown -->
+          <div class="relative group">
+            <button class="flex items-center space-x-1 text-gray-700 hover:text-[#CD1C18] transition">
+              <span>Contributions</span>
+              <i class="fas fa-chevron-down text-sm"></i>
+            </button>
+            <div
+              class="absolute left-0 mt-2 w-56 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 dropdown-enter">
+              <div class="relative group/sub">
+                <button
+                  class="w-full flex items-center justify-between px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">
+                  <span>Infrastructure</span>
+                  <i class="fas fa-chevron-right text-sm"></i>
+                </button>
+                <div
+                  class="absolute left-full top-0 w-56 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-300 ml-2">
+                  <a href="../Contributions/Infrastructure/Shelter.html"
+                    class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Shelter
+                    Area</a>
+                  <a href="../Contributions/Water.html"
+                    class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Water
+                    & Feeding</a>
+                  <a href="../Contributions/Infrastructure/Medical.html"
+                    class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Medical
+                    Care Unit</a>
+                </div>
+              </div>
+              <a href="../Contributions/Infrastructure/Succes.html"
+                class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Success
+                Story</a>
+            </div>
+          </div>
+
+          <!--Get in Touch Dropdown -->
+          <div class="relative group">
+            <button class="flex items-center space-x-1 text-gray-700 hover:text-[#CD1C18] transition">
+              <span>Get in Touch</span>
+              <i class="fas fa-chevron-down text-sm"></i>
+            </button>
+            <div
+              class="absolute left-0 mt-2 w-56 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 dropdown-enter">
+              <a href="../Get in Touch/Get-Involved.html"
+                class="nav-link block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white active">Get
+                Involved</a>
+              <a href="../Get in Touch/Contact-Us.html"
+                class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Contact
+                Us</a>
+              <a href="../Get in Touch/CSR-Partnerships.html"
+                class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">CSR
+                Partnerships</a>
+              <a href="../Get in Touch/Volunteer.html"
+                class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Volunteer</a>
+              <a href="../Get in Touch/Gallery.html"
+                class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Gallery</a>
+              <a href="../Get in Touch/FAQ.html"
+                class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">FAQ</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Donate Button -->
+        <a href="../donate.html"
+          class="hidden lg:block bg-[#CD1C18] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#CD1C18] transition pulse-animation">
+          <i class="fas fa-heart mr-2"></i>Donate Now
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="lg:hidden text-2xl text-gray-700">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-white w-full max-h-[80vh] overflow-y-auto mobile-menu">
+      <div class="px-4 py-2 space-y-2">
+        <a href="../index.html" class="block py-3 text-gray-700 border-b">Home</a>
+
+        <!-- Mobile About Accordion -->
+        <div class="border-b">
+          <button class="mobile-accordion-btn w-full flex justify-between items-center py-3 text-gray-700"
+            data-target="about-mobile">
+            <span>About</span>
+            <i class="fas fa-chevron-down transition-transform"></i>
+          </button>
+          <div id="about-mobile" class="hidden pl-4 pb-3 space-y-2">
+            <a href="../about/Vision.html" class="block py-2 text-gray-600">Vision & Mission</a>
+            <a href="../about/value.html" class="block py-2 text-gray-600">Our Values</a>
+            <a href="../about/Approach.html" class="block py-2 text-gray-600">Our Approach</a>
+            <a href="../about/Leadership.html" class="block py-2 text-gray-600">Leadership</a>
+
+            <!-- Mobile Downloads -->
+            <div class="pl-4 border-l-2 border-gray-200">
+              <button class="mobile-accordion-btn w-full flex justify-between items-center py-2 text-gray-600">
+                <span>Downloads</span>
+                <i class="fas fa-chevron-down text-sm"></i>
+              </button>
+              <div class="hidden pl-4 space-y-2">
+                <div class="pl-4 border-l-2 border-gray-200">
+                  <button class="mobile-accordion-btn w-full flex justify-between items-center py-2 text-gray-600">
+                    <span>Certificates</span>
+                    <i class="fas fa-chevron-down text-sm"></i>
+                  </button>
+                  <div class="hidden pl-4 space-y-2">
+                    <a href="../about/Downloads/Certificates/Registration.html"
+                      class="block py-2 text-gray-600">Registration Certificate</a>
+                    <a href="../about/Downloads/Certificates/12A.html" class="block py-2 text-gray-600">12A
+                      Certificate</a>
+                    <a href="../about/Downloads/Certificates/80G.html" class="block py-2 text-gray-600">80G
+                      Certificate</a>
+                    <a href="../about/Downloads/Certificates/CSR-1.html" class="block py-2 text-gray-600">CSR-1
+                      Certificate</a>
+                  </div>
+                </div>
+                <a href="../about/Downloads/Audit.html" class="block py-2 text-gray-600">Audit
+                  Report</a>
+                <a href="../about/Downloads/Residential.html" class="block py-2 text-gray-600">Residential Proof</a>
+                <a href="../about/Downloads/Memorandum.html" class="block py-2 text-gray-600">Memorandum of
+                  Association</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile Our Initiatives -->
+        <div class="border-b">
+          <button class="mobile-accordion-btn w-full flex justify-between items-center py-3 text-gray-700">
+            <span>Our Initiatives</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="hidden pl-4 pb-3 space-y-2">
+            <a href="../Our Initiatives/Stray-Cattle-Rescue.html" class="block py-2 text-gray-600">Stray
+              Cattle
+              Rescue</a>
+            <a href="../Our Initiatives/Feeding-Program.html" class="block py-2 text-gray-600">Feeding
+              Program</a>
+            <a href="../Our Initiatives/Shelter-Management.html" class="block py-2 text-gray-600">Shelter
+              Management</a>
+            <a href="../Our Initiatives/Veterinary-Care.html" class="block py-2 text-gray-600">Veterinary Care</a>
+          </div>
+        </div>
+
+        <!-- Mobile Contributions -->
+        <div class="border-b">
+          <button class="mobile-accordion-btn w-full flex justify-between items-center py-3 text-gray-700">
+            <span>Contributions</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="hidden pl-4 pb-3 space-y-2">
+            <div class="pl-4 border-l-2 border-gray-200">
+              <button class="mobile-accordion-btn w-full flex justify-between items-center py-2 text-gray-600">
+                <span>Infrastructure</span>
+                <i class="fas fa-chevron-down text-sm"></i>
+              </button>
+              <div class="hidden pl-4 space-y-2">
+                <a href="../Contributions/Infrastructure/Shelter.html" class="block py-2 text-gray-600">Shelter
+                  Area</a>
+                <a href="../Contributions/Water.html" class="block py-2 text-gray-600">Water &
+                  Feeding</a>
+                <a href="../Contributions/Infrastructure/Medical.html" class="block py-2 text-gray-600">Medical Care
+                  Unit</a>
+              </div>
+            </div>
+            <a href="../Contributions/Infrastructure/Succes.html" class="block py-2 text-gray-600">Success Story</a>
+          </div>
+        </div>
+
+        <!-- Mobile Get in Touch-->
+        <div class="border-b">
+          <button class="mobile-accordion-btn w-full flex justify-between items-center py-3 text-gray-700">
+            <span>Get in Touch</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="hidden pl-4 pb-3 space-y-2">
+            <a href="../Get in Touch/Get-Involved.html" class="block py-2 text-gray-600">Get
+              Involved</a>
+            <a href="../Get in Touch/Contact-Us.html" class="block py-2 text-gray-600">Contact Us</a>
+            <a href="../Get in Touch/CSR-Partnerships.html" class="block py-2 text-gray-600">CSR
+              Partnerships</a>
+            <a href="../Get in Touch/Volunteer.html" class="block py-2 text-gray-600">Volunteer</a>
+            <a href="../Get in Touch/Gallery.html" class="block py-2 text-gray-600">Gallery</a>
+            <a href="#" class="block py-2 text-gray-600">FAQ</a>
+          </div>
+        </div>
+
+        <a href="#donate" class="block mt-4 bg-[#FF9933] text-white text-center px-6 py-3 rounded-full font-semibold">
+          <i class="fas fa-heart mr-2"></i>Donate Now
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+<!-- ========== PAGE HERO ========== -->
+<section class="page-hero pt-36 mt-20 pb-20 text-white relative overflow-hidden">
+  <div class="absolute inset-0 opacity-10" style="background-image:radial-gradient(circle,#fff 1px,transparent 1px);background-size:32px 32px;"></div>
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+  
+    <h1 class="playfair text-5xl md:text-6xl font-black leading-tight mb-4 fade-up fade-up-2">
+      Get <span class="text-[#FFDE21]">Involved</span>
+    </h1>
+    <p class="text-white/80 text-lg max-w-2xl fade-up fade-up-3 leading-relaxed">
+      Every act of kindness saves a life. Whether you donate, volunteer, sponsor fodder, or spread the word — your support keeps Gau Mata safe, fed, and loved.
+    </p>
+    <div class="flex flex-wrap gap-4 mt-8 fade-up fade-up-4">
+      <a href="#ways" class="flex items-center gap-2 bg-[#FFDE21] text-[#1a1a1a] px-7 py-3 rounded-full font-black hover:scale-105 transition">
+        <i class="fas fa-heart"></i> See Ways to Help
+      </a>
+      <a href="#involve-form" class="flex items-center gap-2 bg-white/20 backdrop-blur border border-white/40 text-white px-7 py-3 rounded-full font-black hover:bg-white/30 transition">
+        <i class="fas fa-paper-plane"></i> Register Interest
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========== QUICK STATS STRIP ========== -->
+<section class="py-10 bg-[#CD1C18] relative overflow-hidden">
+  <div class="absolute inset-0 opacity-10" style="background-image:radial-gradient(circle,#fff 1px,transparent 1px);background-size:20px 20px;"></div>
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-white">
+      <div>
+        <div class="text-4xl font-black playfair text-[#FFDE21]">750+</div>
+        <div class="text-xs font-black uppercase tracking-widest mt-1 text-white/80">Cows Protected</div>
+      </div>
+      <div>
+        <div class="text-4xl font-black playfair text-[#FFDE21]">1000+</div>
+        <div class="text-xs font-black uppercase tracking-widest mt-1 text-white/80">Supporters</div>
+      </div>
+      <div>
+        <div class="text-4xl font-black playfair text-[#FFDE21]">8+</div>
+        <div class="text-xs font-black uppercase tracking-widest mt-1 text-white/80">Years of Seva</div>
+      </div>
+      <div>
+        <div class="text-4xl font-black playfair text-[#FFDE21]">24/7</div>
+        <div class="text-xs font-black uppercase tracking-widest mt-1 text-white/80">Emergency Care</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========== WAYS TO GET INVOLVED ========== -->
+
+
+
+<!-- ========== IMPACT OF YOUR SUPPORT ========== -->
+<section class="py-16 bg-[#FFF9F0] relative">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-14">
+      <span class="inline-flex items-center gap-2 text-[#CD1C18] font-black uppercase tracking-widest text-xs mb-4">
+        <span class="w-8 h-0.5 bg-[#CD1C18]"></span> Why It Matters <span class="w-8 h-0.5 bg-[#CD1C18]"></span>
+      </span>
+      <h2 class="playfair text-4xl md:text-5xl font-black text-gray-900">
+        What Your Support <span class="text-[#CD1C18]">Achieves</span>
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <img src="https://www.jivdayatrust.org/wp-content/uploads/2020/05/DSC_2214-1024x682.jpg"
+          class="rounded-3xl shadow-2xl w-full h-[360px] object-cover border-4 border-black shadow-[8px_8px_0px_0px_rgba(205,28,24,1)]">
+      </div>
+      <div class="space-y-6">
+        <div class="flex items-start gap-5 p-5 bg-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(205,28,24,1)] rounded-xl">
+          <div class="w-12 h-12 min-w-[3rem] bg-[#FFDE21] border-2 border-black rounded-xl flex items-center justify-center">
+            <i class="fas fa-paw text-black text-xl"></i>
+          </div>
+          <div>
+            <h4 class="font-black text-gray-900 text-base mb-1">Rescued Cows Get a Safe Home</h4>
+            <p class="text-gray-600 text-sm">Every donation ensures injured, abandoned, and stray cows are sheltered, fed, and medically treated — for life.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-5 p-5 bg-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(255,222,33,1)] rounded-xl">
+          <div class="w-12 h-12 min-w-[3rem] bg-[#CD1C18] border-2 border-black rounded-xl flex items-center justify-center">
+            <i class="fas fa-stethoscope text-white text-xl"></i>
+          </div>
+          <div>
+            <h4 class="font-black text-gray-900 text-base mb-1">Emergency Rescue Stays Possible</h4>
+            <p class="text-gray-600 text-sm">Funds keep our 24/7 rescue operation running. Without donations, we cannot respond to road accidents and critical cases.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-5 p-5 bg-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(205,28,24,1)] rounded-xl">
+          <div class="w-12 h-12 min-w-[3rem] bg-[#2E7D32] border-2 border-black rounded-xl flex items-center justify-center">
+            <i class="fas fa-seedling text-white text-xl"></i>
+          </div>
+          <div>
+            <h4 class="font-black text-gray-900 text-base mb-1">Daily Fodder for 750+ Cows</h4>
+            <p class="text-gray-600 text-sm">Our Gaushala needs tons of green fodder, hay, and supplements every single day. Your support keeps the pantry full.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-5 p-5 bg-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(255,222,33,1)] rounded-xl">
+          <div class="w-12 h-12 min-w-[3rem] bg-black border-2 border-black rounded-xl flex items-center justify-center">
+            <i class="fas fa-certificate text-[#FFDE21] text-xl"></i>
+          </div>
+          <div>
+            <h4 class="font-black text-gray-900 text-base mb-1">Full Transparency & Tax Benefit</h4>
+            <p class="text-gray-600 text-sm">We publish annual audit reports and offer 80G tax exemption. Every rupee is accounted for — you can see the impact.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- ========== DONATION CTA ========== -->
+<section class="py-20 gradient-bg text-center text-white relative overflow-hidden">
+  <div class="absolute inset-0 opacity-10" style="background-image:radial-gradient(circle,#fff 1px,transparent 1px);background-size:24px 24px;"></div>
+  <div class="max-w-4xl mx-auto px-6 relative z-10">
+    <h2 class="playfair text-4xl md:text-5xl font-black mb-4">Support Gau Mata Today 🐄</h2>
+    <p class="text-lg md:text-xl mb-10 text-white/80">Your donation provides food, shelter, and medical care to rescued cows at Krushnai Goshala Trust, Jamod.</p>
+    <a href="donate.html" class="inline-flex items-center gap-3 bg-white text-[#CD1C18] px-10 py-4 rounded-full font-black text-lg shadow-xl hover:scale-110 hover:shadow-2xl transition pulse-animation">
+      <i class="fas fa-heart"></i> Donate Now & Save Lives
+    </a>
+    <p class="mt-6 text-white/60 text-xs uppercase tracking-widest">100% Transparency • 80G Tax Benefit • Trusted since 2017</p>
+  </div>
+</section>
+
+
+
+
+ <!-- ========== Footer ========== -->
+  <footer class="bg-[#1a1a1a] text-gray-400 font-inter">
+    <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+
+        <div class="space-y-6">
+          <div class="flex items-center space-x-4">
+            <img src="../image\logo kru.png" alt="SSM Logo"
+              class="h-14 w-14 rounded-full border-2 border-gray-700 shadow-xl">
+            <div class="leading-tight">
+              <span class="block font-black text-lg text-[#FFDE21] tracking-tight">Krushnai Goshala Trust
+              </span>
+              <span class="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mt-1">कृष्णाई
+                गोशाळा ट्रस्ट
+                जामोद, महाराष्ट्र</span>
+            </div>
+          </div>
+          <p class="text-sm leading-relaxed">
+            Krushnai Goshala Trust, Jamod compassionately rescues, shelters, feeds, and provides lifelong
+            care to stray,
+            injured, and abandoned cows.
+          </p>
+          <div class="flex space-x-5 pt-2">
+            <a href="" class="hover:text-[#1877F2] transition-colors duration-300"><i
+                class="fab fa-facebook-f text-lg"></i></a>
+            <a href="" class="hover:text-[#E4405F] transition-colors duration-300"><i
+                class="fab fa-instagram text-lg"></i></a>
+            <a href="" class="hover:text-[#0A66C2] transition-colors duration-300"><i
+                class="fab fa-linkedin-in text-lg"></i></a>
+            <a href="" class="hover:text-[#FF0000] transition-colors duration-300"><i
+                class="fab fa-youtube text-lg"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-xs font-black text-white tracking-widest uppercase mb-6 border-l-4 border-[#CD1C18] pl-4">
+            Quick
+            Links</h3>
+          <ul class="space-y-3 text-sm">
+            <li><a href="../index.html" data-page="home" class="hover:text-[#FFDE21] transition-colors ">Home</a>
+            </li>
+            <li><a href="../about/Vision.html" data-page="about-overview"
+                class="hover:text-[#FFDE21] transition-colors ">About Us</a></li>
+
+            <li><a href="../Get in Touch/CSR-Partnerships.html" data-page="involved-csr"
+                class="hover:text-[#FFDE21] transition-colors ">CSR Partnerships</a></li>
+            <li><a href="../Get in Touch/Volunteer.html" data-page="impact-volunteer"
+                class="hover:text-[#FFDE21] transition-colors ">Volunteer</a></li>
+            <li><a href="../Get in Touch/Get-Involved.html" data-page="impact-gaushala"
+                class="hover:text-[#FFDE21] transition-colors ">Our Gaushala</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-xs font-black text-white tracking-widest uppercase mb-6 border-l-4 border-[#CD1C18] pl-4">
+            Connect</h3>
+          <ul class="space-y-3 text-sm">
+            <!-- <li><a href="#" data-page="involved-involved" class="hover:text-[#f6570e] transition-colors nav-link">get-involved</a></li> -->
+            <li><a href="../donate.html" data-page="involved-donate"
+                class="hover:text-[#FFDE21] transition-colors ">Support a Cause</a></li>
+            <li><a href="../Get in Touch/Contact-Us.html" data-page="connect-contact"
+                class="hover:text-[#FFDE21] transition-colors ">Contact Our Team</a></li>
+            <li><a href="../Get in Touch/Gallery.html" data-page="connect-gallery"
+                class="hover:text-[#FFDE21] transition-colors ">Gallery</a></li>
+            <li><a href="../Get in Touch/FAQ.html" data-page="involved-faq"
+                class="hover:text-[#FFDE21] transition-colors ">Donation FAQ</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-xs font-black text-white tracking-widest uppercase mb-6 border-l-4 border-[#CD1C18] pl-4">
+            Contact Info</h3>
+          <ul class="space-y-4 text-sm">
+            <li class="flex items-start">
+              <i class="fas fa-map-marker-alt mt-1 mr-4 text-[#CD1C18]"></i>
+              <span class="text-gray-300">Head Office: Krushnai Goshala Trust,
+                Gut No. 75 Įonkhel Chalthana Road Jamod, Ta. Jalgaon,
+                Dist. Buldhana, 443402 (Maharashtra) </span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-phone mr-4 text-[#CD1C18]"></i>
+              <span class="text-gray-300">+91 9860562929, +91 9011919575, +91 9970932315</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-envelope mr-4 text-[#CD1C18]"></i>
+              <span class="text-white font-bold">krushnaigoshala2017@gmail.com </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-12 pt-8 border-t border-gray-700">
+        <h4 class="text-sm font-semibold text-white tracking-wider uppercase mb-6 text-center">Trust
+          Certificates</h4>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <a href="../about/Downloads/Certificates/80G.html"
+            class="text-center p-4 bg-gray-700/50 rounded-lg hover:bg-gray-700 transition-colors cursor-pointer">
+            <div class="text-lg font-bold text-white mb-1">80G</div>
+            <div class="text-xs text-gray-400">Tax Exemption</div>
+          </a>
+          <a href="../about/Downloads/Certificates/12A.html"
+            class="text-center p-4 bg-gray-700/50 rounded-lg hover:bg-gray-700 transition-colors cursor-pointer">
+            <div class="text-lg font-bold text-white mb-1">12A</div>
+            <div class="text-xs text-gray-400">Registered Trust</div>
+          </a>
+          <a href="../about/Downloads/Certificates/CSR-1.html"
+            class="text-center p-4 bg-gray-700/50 rounded-lg hover:bg-gray-700 transition-colors cursor-pointer">
+            <div class="text-lg font-bold text-white mb-1">CSR-1</div>
+            <div class="text-xs text-gray-400">CSR Compliance</div>
+          </a>
+          <a href="../about/Downloads/Audit.html"
+            class="text-center p-4 bg-gray-700/50 rounded-lg hover:bg-gray-700 transition-colors cursor-pointer">
+            <div class="text-lg font-bold text-white mb-1">FAR</div>
+            <div class="text-xs text-gray-400">Financial Audit Report </div>
+          </a>
+        </div>
+      </div>
+
+
+      <div class="mt-16 pt-8 border-t border-gray-800 text-center">
+        <p class="text-[10px] font-bold text-gray-600 uppercase tracking-widest leading-relaxed">
+          © 2026 Krushnai Goshala Trust. All Rights Reserved. <class="md:hidden" Registered under Bombay Public Trust
+            Act, 1950.>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+
+
+
+
+
+<!-- ========== SCRIPTS ========== -->
+<script>
+  "use strict";
+
+  // Disable DevTools
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "F12") { e.preventDefault(); return false; }
+    if (e.ctrlKey && e.shiftKey && ["i","j","c"].includes(e.key.toLowerCase())) { e.preventDefault(); return false; }
+    if (e.ctrlKey && ["u","s"].includes(e.key.toLowerCase())) { e.preventDefault(); return false; }
+  });
+  document.addEventListener("dragstart",   e => e.preventDefault());
+  document.addEventListener("selectstart", e => e.preventDefault());
+
+//  MOBILE NAVBAR TOGGLE
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = mobileMenuBtn ? mobileMenuBtn.querySelector('i') : null;
+
+  if (mobileMenuBtn && mobileMenu) {
+    mobileMenuBtn.addEventListener('click', function () {
+      const isOpen = !mobileMenu.classList.contains('hidden');
+
+      if (isOpen) {
+        mobileMenu.classList.add('hidden');
+        if (menuIcon) {
+          menuIcon.classList.remove('fa-times');
+          menuIcon.classList.add('fa-bars');
+        }
+      } else {
+        mobileMenu.classList.remove('hidden');
+        if (menuIcon) {
+          menuIcon.classList.remove('fa-bars');
+          menuIcon.classList.add('fa-times');
+        }
+      }
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        if (menuIcon) {
+          menuIcon.classList.remove('fa-times');
+          menuIcon.classList.add('fa-bars');
+        }
+      });
+    });
+  }
+
+
+  //  MOBILE ACCORDION (dropdown inside mobile menu)
+  document.querySelectorAll('.mobile-accordion-btn').forEach(btn => {
+    btn.addEventListener('click', function () {
+      const content = this.nextElementSibling;
+      if (!content) return;
+
+      const chevron = this.querySelector('i');
+
+      content.classList.toggle('hidden');
+
+      if (chevron) {
+        chevron.style.transform = content.classList.contains('hidden')
+          ? 'rotate(0deg)'
+          : 'rotate(180deg)';
+      }
+    });
+  });
+
+
+  // Smooth Scroll
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href').replace('#', '');
+        const target   = document.getElementById(targetId);
+        if (target) {
+          e.preventDefault();
+          const y = target.getBoundingClientRect().top + window.pageYOffset - 80;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      });
+    });
+  });
+
+  // Involve Form Submit
+  function handleInvolveSubmit(e) {
+    e.preventDefault();
+    const btn = document.getElementById('involveBtn');
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Submitting...';
+    btn.disabled  = true;
+    setTimeout(() => {
+      document.getElementById('involveForm').classList.add('hidden');
+      document.getElementById('involveSuccess').classList.remove('hidden');
+    }, 1800);
+  }
+
+  // Copy Link
+  function copyLink() {
+    const url = window.location.origin;
+    navigator.clipboard.writeText(url).then(() => {
+      document.getElementById('copy-icon').className = 'fas fa-check';
+      document.getElementById('copy-text').textContent = 'Link Copied!';
+      setTimeout(() => {
+        document.getElementById('copy-icon').className = 'fas fa-copy';
+        document.getElementById('copy-text').textContent = 'Copy Our Link';
+      }, 2500);
+    });
+  }
+</script>
+
+</body>
+</html>

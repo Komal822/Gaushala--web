@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ - Krushnai Goshala Trust</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap"
+    rel="stylesheet">
+  <style>
+    * {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .gradient-bg {
+      background: linear-gradient(135deg, #FF9933 0%, #CD1C18 50%, #FFE6CC 100%);
+    }
+
+    .playfair {
+      font-family: 'Playfair Display', serif;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fade-in {
+      animation: fadeInUp 1.2s ease-out forwards;
+    }
+
+    .nav-link.active {
+      color: #CD1C18;
+      font-weight: 600;
+    }
+
+    /* FAQ Accordion Styles */
+    .faq-item {
+      transition: all 0.3s ease;
+    }
+
+    .faq-question {
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .faq-question:hover {
+      background-color: #FFF3E0;
+    }
+
+    .faq-question.active {
+      background-color: #CD1C18;
+      color: white;
+    }
+
+    .faq-question.active i {
+      color: white;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+    }
+
+    .faq-answer.show {
+      max-height: 500px;
+    }
+
+    /* Category Cards */
+    .category-card {
+      transition: all 0.3s ease;
+    }
+
+    .category-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 8px 8px 0px 0px rgba(205, 28, 24, 1);
+    }
+
+    /* Search Box */
+    .search-box {
+      transition: all 0.3s ease;
+    }
+
+    .search-box:focus-within {
+      border-color: #CD1C18;
+      box-shadow: 0 0 0 3px rgba(205, 28, 24, 0.2);
+    }
+  </style>
+</head>
+
+<body class="bg-[#FFF9F0]">
+
+<!-- ========== Header / Navigation ========== -->
+<header class="bg-white/95 backdrop-blur-sm shadow-md fixed top-0 left-0 right-0 z-50 border-b border-gray-100">
+  <div class="bg-[#1a1a1a] text-gray-400 py-2 border-b border-gray-800 hidden lg:block">
+    <div
+      class="mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center text-[11px] font-bold uppercase tracking-wider">
+      <div class="flex items-center space-x-6">
+        <span class="flex items-center">
+          <i class="fas fa-map-marker-alt mr-2 text-[#f6570e]"></i> Jalgaon, India
+        </span>
+        <span class="flex items-center">
+          <i class="far fa-clock mr-2 text-[#f6570e]"></i> Mon - Sat : 10.00 AM - 06.00 PM
+        </span>
+      </div>
+
+      <div class="flex items-center space-x-6">
+        <a href="tel:+919209092150" class="hover:text-white transition-colors">
+          <i class="fas fa-phone-alt mr-2 text-[#f6570e]"></i>Contact us : +91 9860562929, +91 9011919575,
+          +91
+          9970932315
+        </a>
+        <a href="mailto:krushnaigoshala2017@gmail.com" class="hover:text-white transition-colors lowercase">
+          <i class="fas fa-envelope mr-2 text-[#f6570e]"></i> krushnaigoshala2017@gmail.com
+        </a>
+
+        <!-- SOCIAL ICONS -->
+        <div class="flex items-center space-x-3 border-l border-gray-700 pl-4">
+          <a href="" class="hover:text-sky-400" title="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="" class="hover:text-[#E4405F]" title="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="" class="hover:text-[#0A66C2]" title="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="" class="hover:text-red-500" title="YouTube">
+            <i class="fab fa-youtube"></i>
+          </a>
+          <!-- <a href="#" class="hover:text-sky-400" title="Twitter / X">
+                    <i class="fab fa-twitter"></i> -->
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Navbar -->
+  <nav class="glass-effect">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        <!-- Logo -->
+        <div class="flex items-center space-x-3">
+          <a href="" class="flex items-center space-x-3">
+            <div class="static md:absolute md:left-10 md:top-full md:-translate-y-1/2 md:z-50 group flex items-center">
+              <div
+                class="p-0 md:p-1.5 rounded-full md:bg-white/10 md:backdrop-blur-sm md:border md:border-slate-200/50 transition-all duration-500 ease-in-out group-hover:scale-105 md:group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(0,0,0,0.1)] group-hover:bg-white/20">
+                <img src="../image/logo kru.png" alt="SSM Logo "
+                  class="h-20 w-20 sm:h-24 sm:w-24 md:h-36 md:w-36 object-contain rounded-full border-2 md:border-[3px] border-white shadow-sm transition-all duration-500 ease-in-out group-hover:border-blue-400 group-hover:brightness-105">
+                <div
+                  class="absolute inset-0 rounded-full border-2 border-transparent group-hover:border-blue-400/20 group-hover:scale-125 transition-all duration-700 ease-out opacity-0 group-hover:opacity-100">
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden lg:flex items-center space-x-8">
+          <!-- Home -->
+          <a href="../index.html"
+            class=" text-gray-700 font-bold hover:text-[#CD1C18] transition ">Home</a>
+
+          <!-- About Dropdown -->
+          <div class="relative group">
+            <button class="flex items-center space-x-1 text-gray-700 hover:text-[#CD1C18] transition">
+              <span>About</span>
+              <i class="fas fa-chevron-down text-sm"></i>
+            </button>
+            <div
+              class="absolute left-0 mt-2 w-64 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 dropdown-enter">
+              <div class="py-2">
+                <a href="../about/Vision.html"
+                  class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Vision
+                  &
+                  Mission</a>
+                <a href="../about/value.html"
+                  class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Our
+                  Values</a>
+                <a href="../about/Approach.html"
+                  class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Our
+                  Approach</a>
+                <a href="../about/Leadership.html"
+                  class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Leadership</a>
+
+                <!-- Downloads Nested Dropdown -->
+                <div class="relative group/sub">
+                  <button
+                    class="w-full flex items-center justify-between px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">
+                    <span>Downloads</span>
+                    <i class="fas fa-chevron-right text-sm"></i>
+                  </button>
+                  <div
+                    class="absolute left-full top-0 w-64 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-300 ml-2">
+                    <div class="py-2">
+                      <!-- Certificates Nested -->
+                      <div class="relative group/sub2">
+                        <button
+                          class="w-full flex items-center justify-between px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">
+                          <span>Certificates</span>
+                          <i class="fas fa-chevron-right text-sm"></i>
+                        </button>
+                        <div
+                          class="absolute left-full top-0 w-64 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover/sub2:opacity-100 group-hover/sub2:visible transition-all duration-300 ml-2">
+                          <a href="../about/Downloads/Certificates/Registration.html"
+                            class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Registration
+                            Certificate</a>
+                          <a href="../about/Downloads/Certificates/12A.html"
+                            class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">12A
+                            Certificate</a>
+                          <a href="../about/Downloads/Certificates/80G.html"
+                            class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">80G
+                            Certificat/>
+                            <a href="../about/Downloads/Certificates/CSR-1.html"
+                              class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">CSR-1
+                              Certificate</a>
+                        </div>
+                      </div>
+                      <a href="../about/Downloads/Audit.html"
+                        class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Audit
+                        Report</a>
+                      <a href="../about/Downloads/Residential.html"
+                        class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Residential
+                        Proof</a>
+                      <a href="../about/Downloads/Memorandum.html"
+                        class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Memorandum
+                        of
+                        Association</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Our Initiatives Dropdown -->
+          <div class="relative group">
+            <button class="flex items-center space-x-1 text-gray-700 hover:text-[#CD1C18] transition">
+              <span>Our Initiatives</span>
+              <i class="fas fa-chevron-down text-sm"></i>
+            </button>
+            <div
+              class="absolute left-0 mt-2 w-56 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 dropdown-enter">
+              <a href="../Our Initiatives/Stray-Cattle-Rescue.html"
+                class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Stray
+                Cattle
+                Rescue</a>
+              <a href="../Our Initiatives/Feeding-Program.html"
+                class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Feeding
+                Program</a>
+              <a href="../Our Initiatives/Shelter-Management.html"
+                class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Shelter
+                Management</a>
+              <a href="../Our Initiatives/Veterinary-Care.html"
+                class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Veterinary
+                Care</a>
+            </div>
+          </div>
+
+          <!-- Contributions Dropdown -->
+          <div class="relative group">
+            <button class="flex items-center space-x-1 text-gray-700 hover:text-[#CD1C18] transition">
+              <span>Contributions</span>
+              <i class="fas fa-chevron-down text-sm"></i>
+            </button>
+            <div
+              class="absolute left-0 mt-2 w-56 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 dropdown-enter">
+              <div class="relative group/sub">
+                <button
+                  class="w-full flex items-center justify-between px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">
+                  <span>Infrastructure</span>
+                  <i class="fas fa-chevron-right text-sm"></i>
+                </button>
+                <div
+                  class="absolute left-full top-0 w-56 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-300 ml-2">
+                  <a href="../Contributions/Infrastructure/Shelter.html"
+                    class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Shelter
+                    Area</a>
+                  <a href="../Contributions/Water.html"
+                    class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Water
+                    & Feeding</a>
+                  <a href="../Contributions/Infrastructure/Medical.html"
+                    class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Medical
+                    Care Unit</a>
+                </div>
+              </div>
+              <a href="../Contributions/Infrastructure/Succes.html"
+                class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Success
+                Story</a>
+            </div>
+          </div>
+
+          <!--Get in Touch Dropdown -->
+          <div class="relative group">
+            <button class="flex items-center space-x-1 text-gray-700 hover:text-[#CD1C18] transition">
+              <span>Get in Touch</span>
+              <i class="fas fa-chevron-down text-sm"></i>
+            </button>
+            <div
+              class="absolute left-0 mt-2 w-56 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 dropdown-enter">
+              <a href="../Get in Touch/Get-Involved.html"
+                class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Get
+                Involved</a>
+              <a href="../Get in Touch/Contact-Us.html"
+                class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Contact
+                Us</a>
+              <a href="../Get in Touch/CSR-Partnerships.html"
+                class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">CSR
+                Partnerships</a>
+              <a href="../Get in Touch/Volunteer.html"
+                class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Volunteer</a>
+              <a href="../Get in Touch/Gallery.html"
+                class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Gallery</a>
+              <a href="../Get in Touch/FAQ.html"
+                class="nav-link block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white active">FAQ</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Donate Button -->
+        <a href="../donate.html"
+          class="hidden lg:block bg-[#CD1C18] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#CD1C18] transition pulse-animation">
+          <i class="fas fa-heart mr-2"></i>Donate Now
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="lg:hidden text-2xl text-gray-700">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-white w-full max-h-[80vh] overflow-y-auto mobile-menu">
+      <div class="px-4 py-2 space-y-2">
+        <a href="../index.html" class="block py-3 text-gray-700 border-b">Home</a>
+
+        <!-- Mobile About Accordion -->
+        <div class="border-b">
+          <button class="mobile-accordion-btn w-full flex justify-between items-center py-3 text-gray-700"
+            data-target="about-mobile">
+            <span>About</span>
+            <i class="fas fa-chevron-down transition-transform"></i>
+          </button>
+          <div id="about-mobile" class="hidden pl-4 pb-3 space-y-2">
+            <a href="../about/Vision.html" class="block py-2 text-gray-600">Vision & Mission</a>
+            <a href="../about/value.html" class="block py-2 text-gray-600">Our Values</a>
+            <a href="../about/Approach.html" class="block py-2 text-gray-600">Our Approach</a>
+            <a href="../about/Leadership.html" class="block py-2 text-gray-600">Leadership</a>
+
+            <!-- Mobile Downloads -->
+            <div class="pl-4 border-l-2 border-gray-200">
+              <button class="mobile-accordion-btn w-full flex justify-between items-center py-2 text-gray-600">
+                <span>Downloads</span>
+                <i class="fas fa-chevron-down text-sm"></i>
+              </button>
+              <div class="hidden pl-4 space-y-2">
+                <div class="pl-4 border-l-2 border-gray-200">
+                  <button class="mobile-accordion-btn w-full flex justify-between items-center py-2 text-gray-600">
+                    <span>Certificates</span>
+                    <i class="fas fa-chevron-down text-sm"></i>
+                  </button>
+                  <div class="hidden pl-4 space-y-2">
+                    <a href="../about/Downloads/Certificates/Registration.html"
+                      class="block py-2 text-gray-600">Registration Certificate</a>
+                    <a href="../about/Downloads/Certificates/12A.html" class="block py-2 text-gray-600">12A
+                      Certificate</a>
+                    <a href="../about/Downloads/Certificates/80G.html" class="block py-2 text-gray-600">80G
+                      Certificate</a>
+                    <a href="../about/Downloads/Certificates/CSR-1.html" class="block py-2 text-gray-600">CSR-1
+                      Certificate</a>
+                  </div>
+                </div>
+                <a href="../about/Downloads/Audit.html" class="block py-2 text-gray-600">Audit
+                  Report</a>
+                <a href="../about/Downloads/Residential.html" class="block py-2 text-gray-600">Residential Proof</a>
+                <a href="../about/Downloads/Memorandum.html" class="block py-2 text-gray-600">Memorandum of
+                  Association</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile Our Initiatives -->
+        <div class="border-b">
+          <button class="mobile-accordion-btn w-full flex justify-between items-center py-3 text-gray-700">
+            <span>Our Initiatives</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="hidden pl-4 pb-3 space-y-2">
+            <a href="../Our Initiatives/Stray-Cattle-Rescue.html" class="block py-2 text-gray-600">Stray
+              Cattle
+              Rescue</a>
+            <a href="../Our Initiatives/Feeding-Program.html" class="block py-2 text-gray-600">Feeding
+              Program</a>
+            <a href="../Our Initiatives/Shelter-Management.html" class="block py-2 text-gray-600">Shelter
+              Management</a>
+            <a href="../Our Initiatives/Veterinary-Care.html" class="block py-2 text-gray-600">Veterinary Care</a>
+          </div>
+        </div>
+
+        <!-- Mobile Contributions -->
+        <div class="border-b">
+          <button class="mobile-accordion-btn w-full flex justify-between items-center py-3 text-gray-700">
+            <span>Contributions</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="hidden pl-4 pb-3 space-y-2">
+            <div class="pl-4 border-l-2 border-gray-200">
+              <button class="mobile-accordion-btn w-full flex justify-between items-center py-2 text-gray-600">
+                <span>Infrastructure</span>
+                <i class="fas fa-chevron-down text-sm"></i>
+              </button>
+              <div class="hidden pl-4 space-y-2">
+                <a href="../Contributions/Infrastructure/Shelter.html" class="block py-2 text-gray-600">Shelter
+                  Area</a>
+                <a href="../Contributions/Water.html" class="block py-2 text-gray-600">Water &
+                  Feeding</a>
+                <a href="../Contributions/Infrastructure/Medical.html" class="block py-2 text-gray-600">Medical Care
+                  Unit</a>
+              </div>
+            </div>
+            <a href="../Contributions/Infrastructure/Succes.html" class="block py-2 text-gray-600">Success Story</a>
+          </div>
+        </div>
+
+        <!-- Mobile Get in Touch-->
+        <div class="border-b">
+          <button class="mobile-accordion-btn w-full flex justify-between items-center py-3 text-gray-700">
+            <span>Get in Touch</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="hidden pl-4 pb-3 space-y-2">
+            <a href="../Get in Touch/Get-Involved.html" class="block py-2 text-gray-600">Get
+              Involved</a>
+            <a href="../Get in Touch/Contact-Us.html" class="block py-2 text-gray-600">Contact Us</a>
+            <a href="../Get in Touch/CSR-Partnerships.html" class="block py-2 text-gray-600">CSR
+              Partnerships</a>
+            <a href="../Get in Touch/Volunteer.html" class="block py-2 text-gray-600">Volunteer</a>
+            <a href="../Get in Touch/Gallery.html" class="block py-2 text-gray-600">Gallery</a>
+            <a href="#" class="block py-2 text-gray-600">FAQ</a>
+          </div>
+        </div>
+
+        <a href="#donate" class="block mt-4 bg-[#FF9933] text-white text-center px-6 py-3 rounded-full font-semibold">
+          <i class="fas fa-heart mr-2"></i>Donate Now
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+<!-- ================= FAQ HERO SECTION ================= -->
+<section class="relative pt-40 pb-24 overflow-hidden">
+  <!-- Background Image with Overlay -->
+  <div class="absolute inset-0 z-0">
+    <img src="https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+         alt="FAQ Hero" 
+         class="w-full h-full object-cover">
+    <div class="absolute inset-0 bg-gradient-to-r from-[#1a1a1a] via-[#1a1a1a]/90 to-[#CD1C18]/70"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 max-w-7xl mx-auto px-6 text-center">
+    <div class="animate-fade-in">
+      <span class="inline-block bg-[#FFDE21] text-[#1a1a1a] text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-widest mb-6">
+        <i class="fas fa-question-circle mr-2"></i> Got Questions?
+      </span>
+      <h1 class="playfair font-black text-white leading-tight mb-6 text-5xl md:text-7xl">
+        Frequently Asked <span class="text-[#FFDE21]">Questions</span>
+      </h1>
+      <p class="text-xl text-white/90 max-w-3xl mx-auto mb-10 font-medium">
+        Find answers to common questions about our Gaushala, donation process, volunteering opportunities, and how you can help protect Gau Mata.
+      </p>
+      
+      <!-- Search Box -->
+      <!-- <div class="max-w-2xl mx-auto">
+        <div class="search-box flex items-center bg-white rounded-full border-2 border-black overflow-hidden shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+          <input type="text" id="faq-search" placeholder="Search your question..." class="flex-1 px-6 py-4 outline-none text-gray-700">
+          <button class="bg-[#CD1C18] text-white px-8 py-4 font-bold hover:bg-[#a81512] transition">
+            <i class="fas fa-search mr-2"></i> Search
+          </button>
+        </div>
+        <p class="text-white/70 text-sm mt-4">Popular searches: donation, volunteer, adoption, tax exemption, visit timings</p>
+      </div> -->
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ CATEGORIES ================= -->
+<section class="py-16 bg-white border-b-2 border-black">
+  <div class="max-w-7xl mx-auto px-6">
+    
+    <div class="text-center mb-12">
+      <h2 class="playfair text-3xl md:text-4xl font-black text-gray-900">Browse by <span class="text-[#CD1C18]">Category</span></h2>
+      <p class="text-gray-600 mt-2">Select a category to find specific answers</p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+      
+      <!-- Category 1: Donation -->
+      <div class="category-card bg-[#FFF9F0] p-6 rounded-2xl border-2 border-black text-center cursor-pointer hover:bg-[#CD1C18] group transition-all" onclick="filterByCategory('donation')">
+        <div class="w-14 h-14 mx-auto bg-[#CD1C18]/10 rounded-full flex items-center justify-center mb-3 group-hover:bg-white transition">
+          <i class="fas fa-heart text-2xl text-[#CD1C18] group-hover:text-[#CD1C18]"></i>
+        </div>
+        <h3 class="font-black text-sm group-hover:text-white">Donation</h3>
+        <p class="text-xs text-gray-500 group-hover:text-white/80">12 Qs</p>
+      </div>
+
+      <!-- Category 2: Volunteering -->
+      <div class="category-card bg-[#FFF9F0] p-6 rounded-2xl border-2 border-black text-center cursor-pointer hover:bg-[#FF9933] group transition-all" onclick="filterByCategory('volunteer')">
+        <div class="w-14 h-14 mx-auto bg-[#FF9933]/10 rounded-full flex items-center justify-center mb-3 group-hover:bg-white transition">
+          <i class="fas fa-hands-helping text-2xl text-[#FF9933] group-hover:text-[#FF9933]"></i>
+        </div>
+        <h3 class="font-black text-sm group-hover:text-white">Volunteering</h3>
+        <p class="text-xs text-gray-500 group-hover:text-white/80">8 Qs</p>
+      </div>
+
+      <!-- Category 3: Adoption -->
+      <div class="category-card bg-[#FFF9F0] p-6 rounded-2xl border-2 border-black text-center cursor-pointer hover:bg-[#2E7D32] group transition-all" onclick="filterByCategory('adoption')">
+        <div class="w-14 h-14 mx-auto bg-[#2E7D32]/10 rounded-full flex items-center justify-center mb-3 group-hover:bg-white transition">
+          <i class="fas fa-paw text-2xl text-[#2E7D32] group-hover:text-[#2E7D32]"></i>
+        </div>
+        <h3 class="font-black text-sm group-hover:text-white">Cow Adoption</h3>
+        <p class="text-xs text-gray-500 group-hover:text-white/80">6 Qs</p>
+      </div>
+
+      <!-- Category 4: Tax Benefits -->
+      <div class="category-card bg-[#FFF9F0] p-6 rounded-2xl border-2 border-black text-center cursor-pointer hover:bg-[#CD1C18] group transition-all" onclick="filterByCategory('tax')">
+        <div class="w-14 h-14 mx-auto bg-[#CD1C18]/10 rounded-full flex items-center justify-center mb-3 group-hover:bg-white transition">
+          <i class="fas fa-file-invoice text-2xl text-[#CD1C18] group-hover:text-[#CD1C18]"></i>
+        </div>
+        <h3 class="font-black text-sm group-hover:text-white">Tax Benefits</h3>
+        <p class="text-xs text-gray-500 group-hover:text-white/80">5 Qs</p>
+      </div>
+
+      <!-- Category 5: Visit Gaushala -->
+      <div class="category-card bg-[#FFF9F0] p-6 rounded-2xl border-2 border-black text-center cursor-pointer hover:bg-[#FFDE21] group transition-all" onclick="filterByCategory('visit')">
+        <div class="w-14 h-14 mx-auto bg-[#FFDE21]/10 rounded-full flex items-center justify-center mb-3 group-hover:bg-white transition">
+          <i class="fas fa-map-marker-alt text-2xl text-[#FFDE21] group-hover:text-[#FFDE21]"></i>
+        </div>
+        <h3 class="font-black text-sm group-hover:text-black">Visit Gaushala</h3>
+        <p class="text-xs text-gray-500 group-hover:text-black/80">7 Qs</p>
+      </div>
+
+      <!-- Category 6: General -->
+      <div class="category-card bg-[#FFF9F0] p-6 rounded-2xl border-2 border-black text-center cursor-pointer hover:bg-gray-800 group transition-all" onclick="filterByCategory('general')">
+        <div class="w-14 h-14 mx-auto bg-gray-800/10 rounded-full flex items-center justify-center mb-3 group-hover:bg-white transition">
+          <i class="fas fa-info-circle text-2xl text-gray-800 group-hover:text-gray-800"></i>
+        </div>
+        <h3 class="font-black text-sm group-hover:text-white">General</h3>
+        <p class="text-xs text-gray-500 group-hover:text-white/80">10 Qs</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ACCORDION SECTION ================= -->
+<section class="py-20 bg-[#FFF9F0]">
+  <div class="max-w-4xl mx-auto px-6">
+    
+    <!-- Category Title -->
+    <div class="mb-8 flex items-center justify-between">
+      <h2 class="text-2xl md:text-3xl font-black" id="current-category">All Questions</h2>
+      <button class="text-sm text-[#CD1C18] font-bold hover:underline" onclick="resetCategory()">View All</button>
+    </div>
+
+    <!-- FAQ Items Container -->
+    <div class="space-y-4" id="faq-container">
+      
+      <!-- ========== DONATION CATEGORY ========== -->
+      <!-- FAQ 1 -->
+      <div class="faq-item border-2 border-black rounded-2xl overflow-hidden bg-white" data-category="donation">
+        <div class="faq-question p-6 bg-[#FFF9F0] font-black flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
+          <span class="text-lg">How can I donate to Krushnai Goshala Trust?</span>
+          <i class="fas fa-chevron-down text-[#CD1C18] transition-transform"></i>
+        </div>
+        <div class="faq-answer p-6 border-t-2 border-black bg-white">
+          <p class="text-gray-700">You can donate through multiple methods:</p>
+          <ul class="list-disc pl-6 mt-2 text-gray-700 space-y-1">
+            <li><span class="font-bold">Online:</span> Via our website using credit/debit card, UPI, or net banking</li>
+            <li><span class="font-bold">Bank Transfer:</span> Direct transfer to our bank account (details available on request)</li>
+            <li><span class="font-bold">Cheque/DD:</span> In favor of "Krushnai Goshala Trust"</li>
+            <li><span class="font-bold">Cash:</span> At our Gaushala or local collection centers</li>
+          </ul>
+          <p class="mt-3 text-gray-700">All donations are eligible for 80G tax exemption.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 2 -->
+      <div class="faq-item border-2 border-black rounded-2xl overflow-hidden bg-white" data-category="donation">
+        <div class="faq-question p-6 bg-[#FFF9F0] font-black flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
+          <span class="text-lg">Is my donation tax exempted under 80G?</span>
+          <i class="fas fa-chevron-down text-[#CD1C18] transition-transform"></i>
+        </div>
+        <div class="faq-answer p-6 border-t-2 border-black bg-white">
+          <p class="text-gray-700">Yes, Krushnai Goshala Trust is registered under Section 80G of the Income Tax Act. Donors are eligible for 50% tax exemption on their contributions. We provide a 80G receipt for all donations above ₹500.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 3 -->
+      <div class="faq-item border-2 border-black rounded-2xl overflow-hidden bg-white" data-category="donation">
+        <div class="faq-question p-6 bg-[#FFF9F0] font-black flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
+          <span class="text-lg">Can I make a monthly recurring donation?</span>
+          <i class="fas fa-chevron-down text-[#CD1C18] transition-transform"></i>
+        </div>
+        <div class="faq-answer p-6 border-t-2 border-black bg-white">
+          <p class="text-gray-700">Absolutely! You can set up a monthly donation through our website. Choose your preferred amount and frequency (monthly/quarterly/yearly). Monthly donations help us plan our expenses better and ensure consistent care for our cows.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 4 -->
+      <div class="faq-item border-2 border-black rounded-2xl overflow-hidden bg-white" data-category="donation">
+        <div class="faq-question p-6 bg-[#FFF9F0] font-black flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
+          <span class="text-lg">What is the minimum donation amount?</span>
+          <i class="fas fa-chevron-down text-[#CD1C18] transition-transform"></i>
+        </div>
+        <div class="faq-answer p-6 border-t-2 border-black bg-white">
+          <p class="text-gray-700">There is no minimum amount - every contribution, big or small, makes a difference! However, for 80G tax exemption certificate, donations above ₹500 are eligible. You can donate as little as ₹51 to feed a cow for a day.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 5 -->
+      <div class="faq-item border-2 border-black rounded-2xl overflow-hidden bg-white" data-category="donation">
+        <div class="faq-question p-6 bg-[#FFF9F0] font-black flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
+          <span class="text-lg">Will I receive a receipt for my donation?</span>
+          <i class="fas fa-chevron-down text-[#CD1C18] transition-transform"></i>
+        </div>
+        <div class="faq-answer p-6 border-t-2 border-black bg-white">
+          <p class="text-gray-700">Yes, you will receive an automatic receipt via email for online donations. For offline donations, we will send a physical receipt within 7 working days. All receipts include 80G certification details.</p>
+        </div>
+      </div>
+
+      <!-- ========== VOLUNTEERING CATEGORY ========== -->
+      <!-- FAQ 6 -->
+      <div class="faq-item border-2 border-black rounded-2xl overflow-hidden bg-white" data-category="volunteer">
+        <div class="faq-question p-6 bg-[#FFF9F0] font-black flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
+          <span class="text-lg">How can I volunteer at the Gaushala?</span>
+          <i class="fas fa-chevron-down text-[#CD1C18] transition-transform"></i>
+        </div>
+        <div class="faq-answer p-6 border-t-2 border-black bg-white">
+          <p class="text-gray-700">You can volunteer by filling out our volunteer registration form online or visiting the Gaushala directly. Activities include feeding cows, cleaning shelters, assisting in medical camps, and helping with events. Minimum age requirement is 16 years (under 16 must be accompanied by an adult).</p>
+        </div>
+      </div>
+
+      <!-- FAQ 7 -->
+      <div class="faq-item border-2 border-black rounded-2xl overflow-hidden bg-white" data-category="volunteer">
+        <div class="faq-question p-6 bg-[#FFF9F0] font-black flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
+          <span class="text-lg">Do I need any special skills to volunteer?</span>
+          <i class="fas fa-chevron-down text-[#CD1C18] transition-transform"></i>
+        </div>
+        <div class="faq-answer p-6 border-t-2 border-black bg-white">
+          <p class="text-gray-700">No special skills are required - just a willingness to serve! However, if you have veterinary skills, fundraising experience, social media expertise, or teaching abilities, we'd love to utilize your talents. We provide all necessary training.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 8 -->
+      <div class="faq-item border-2 border-black rounded-2xl overflow-hidden bg-white" data-category="volunteer">
+        <div class="faq-question p-6 bg-[#FFF9F0] font-black flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
+          <span class="text-lg">Can corporate groups volunteer together?</span>
+          <i class="fas fa-chevron-down text-[#CD1C18] transition-transform"></i>
+        </div>
+        <div class="faq-answer p-6 border-t-2 border-black bg-white">
+          <p class="text-gray-700">Yes! We welcome corporate groups for team-building and CSR volunteering. We can organize group activities, medical camps, cleanliness drives, and feeding programs. Please contact us in advance to schedule your visit.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 9 -->
+      <div class="faq-item border-2 border-black rounded-2xl overflow-hidden bg-white" data-category="volunteer">
+        <div class="faq-question p-6 bg-[#FFF9F0] font-black flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
+          <span class="text-lg">What is the time commitment for volunteers?</span>
+          <i class="fas fa-chevron-down text-[#CD1C18] transition-transform"></i>
+        </div>
+        <div class="faq-answer p-6 border-t-2 border-black bg-white">
+          <p class="text-gray-700">We offer flexible options: one-time visits, weekend volunteering, or long-term commitments. Regular volunteers typically contribute 4-8 hours per week. You can choose what works best with your schedule.</p>
+        </div>
+      </div>
+
+      <!-- ========== COW ADOPTION CATEGORY ========== -->
+      <!-- FAQ 10 -->
+      <div class="faq-item border-2 border-black rounded-2xl overflow-hidden bg-white" data-category="adoption">
+        <div class="faq-question p-6 bg-[#FFF9F0] font-black flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
+          <span class="text-lg">How does cow adoption work?</span>
+          <i class="fas fa-chevron-down text-[#CD1C18] transition-transform"></i>
+        </div>
+        <div class="faq-answer p-6 border-t-2 border-black bg-white">
+          <p class="text-gray-700">Through our cow adoption program, you can sponsor the lifelong care of a cow. You pay an annual fee (₹11,001 per cow) that covers food, shelter, medical care, and maintenance. You'll receive a certificate, photo, and updates about your adopted cow. The cow remains at our Gaushala under our care.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 11 -->
+      <div class="faq-item border-2 border-black rounded-2xl overflow-hidden bg-white" data-category="adoption">
+        <div class="faq-question p-6 bg-[#FFF9F0] font-black flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
+          <span class="text-lg">Can I visit my adopted cow?</span>
+          <i class="fas fa-chevron-down text-[#CD1C18] transition-transform"></i>
+        </div>
+        <div class="faq-answer p-6 border-t-2 border-black bg-white">
+          <p class="text-gray-700">Absolutely! Adopters are welcome to visit their adopted cow during Gaushala visiting hours. We recommend scheduling your visit in advance so we can arrange a special moment for you with your cow.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 12 -->
+      <div class="faq-item border-2 border-black rounded-2xl overflow-hidden bg-white" data-category="adoption">
+        <div class="faq-question p-6 bg-[#FFF9F0] font-black flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
+          <span class="text-lg">Is cow adoption tax deductible?</span>
+          <i class="fas fa-chevron-down text-[#CD1C18] transition-transform"></i>
+        </div>
+        <div class="faq-answer p-6 border-t-2 border-black bg-white">
+          <p class="text-gray-700">Yes, cow adoption fees are eligible for 80G tax exemption as they are considered donations to the trust. You will receive a receipt for your adoption payment.</p>
+        </div>
+      </div>
+
+      <!-- ========== TAX BENEFITS CATEGORY ========== -->
+      <!-- FAQ 13 -->
+      <div class="faq-item border-2 border-black rounded-2xl overflow-hidden bg-white" data-category="tax">
+        <div class="faq-question p-6 bg-[#FFF9F0] font-black flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
+          <span class="text-lg">What is 80G tax exemption?</span>
+          <i class="fas fa-chevron-down text-[#CD1C18] transition-transform"></i>
+        </div>
+        <div class="faq-answer p-6 border-t-2 border-black bg-white">
+          <p class="text-gray-700">Section 80G of the Income Tax Act allows donors to claim a deduction on donations made to registered charitable trusts. Krushnai Goshala Trust is 80G registered, so donors can claim 50% tax exemption on their donations. For example, if you donate ₹10,000, you can deduct ₹5,000 from your taxable income.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 14 -->
+      <div class="faq-item border-2 border-black rounded-2xl overflow-hidden bg-white" data-category="tax">
+        <div class="faq-question p-6 bg-[#FFF9F0] font-black flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
+          <span class="text-lg">How do I claim tax exemption for my donation?</span>
+          <i class="fas fa-chevron-down text-[#CD1C18] transition-transform"></i>
+        </div>
+        <div class="faq-answer p-6 border-t-2 border-black bg-white">
+          <p class="text-gray-700">Keep the donation receipt provided by Krushnai Goshala Trust. While filing your income tax returns, enter the donation amount under Section 80G deductions. You may need to show the receipt if requested by tax authorities.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 15 -->
+      <div class="faq-item border-2 border-black rounded-2xl overflow-hidden bg-white" data-category="tax">
+        <div class="faq-question p-6 bg-[#FFF9F0] font-black flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
+          <span class="text-lg">Do I need to provide PAN for 80G certificate?</span>
+          <i class="fas fa-chevron-down text-[#CD1C18] transition-transform"></i>
+        </div>
+        <div class="faq-answer p-6 border-t-2 border-black bg-white">
+          <p class="text-gray-700">Yes, for donations above ₹2,500, we require your PAN card details to issue a valid 80G certificate. For donations below ₹2,500, PAN is optional but recommended.</p>
+        </div>
+      </div>
+
+      <!-- ========== VISIT GAUSHALA CATEGORY ========== -->
+      <!-- FAQ 16 -->
+      <div class="faq-item border-2 border-black rounded-2xl overflow-hidden bg-white" data-category="visit">
+        <div class="faq-question p-6 bg-[#FFF9F0] font-black flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
+          <span class="text-lg">What are the visiting hours?</span>
+          <i class="fas fa-chevron-down text-[#CD1C18] transition-transform"></i>
+        </div>
+        <div class="faq-answer p-6 border-t-2 border-black bg-white">
+          <p class="text-gray-700">We are open for visitors from 10:00 AM to 6:00 PM, Monday through Saturday. Sunday visits are by prior appointment only. The best time to visit is early morning (10 AM - 12 PM) or late afternoon (4 PM - 6 PM) when cows are most active.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 17 -->
+      <div class="faq-item border-2 border-black rounded-2xl overflow-hidden bg-white" data-category="visit">
+        <div class="faq-question p-6 bg-[#FFF9F0] font-black flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
+          <span class="text-lg">Is there an entry fee?</span>
+          <i class="fas fa-chevron-down text-[#CD1C18] transition-transform"></i>
+        </div>
+        <div class="faq-answer p-6 border-t-2 border-black bg-white">
+          <p class="text-gray-700">No, there is no entry fee. However, we welcome voluntary contributions that help us maintain the Gaushala. Group visits of 10+ people should be scheduled in advance.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 18 -->
+      <div class="faq-item border-2 border-black rounded-2xl overflow-hidden bg-white" data-category="visit">
+        <div class="faq-question p-6 bg-[#FFF9F0] font-black flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
+          <span class="text-lg">Can I bring food to feed the cows?</span>
+          <i class="fas fa-chevron-down text-[#CD1C18] transition-transform"></i>
+        </div>
+        <div class="faq-answer p-6 border-t-2 border-black bg-white">
+          <p class="text-gray-700">Yes, you can bring fruits, vegetables, or green fodder. However, please avoid processed foods, bread, or anything that might harm the cows. Our staff can guide you on appropriate feeding. You can also purchase approved fodder from our Gaushala.</p>
+        </div>
+      </div>
+
+      <!-- ========== GENERAL CATEGORY ========== -->
+      <!-- FAQ 19 -->
+      <div class="faq-item border-2 border-black rounded-2xl overflow-hidden bg-white" data-category="general">
+        <div class="faq-question p-6 bg-[#FFF9F0] font-black flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
+          <span class="text-lg">How many cows does the Gaushala currently shelter?</span>
+          <i class="fas fa-chevron-down text-[#CD1C18] transition-transform"></i>
+        </div>
+        <div class="faq-answer p-6 border-t-2 border-black bg-white">
+          <p class="text-gray-700">We currently shelter over 750 cows, including injured, abandoned, and elderly cows. Our capacity is expanding with new shelters being constructed.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 20 -->
+      <div class="faq-item border-2 border-black rounded-2xl overflow-hidden bg-white" data-category="general">
+        <div class="faq-question p-6 bg-[#FFF9F0] font-black flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
+          <span class="text-lg">What medical facilities are available?</span>
+          <i class="fas fa-chevron-down text-[#CD1C18] transition-transform"></i>
+        </div>
+        <div class="faq-answer p-6 border-t-2 border-black bg-white">
+          <p class="text-gray-700">We have an in-house medical unit with a full-time veterinarian. Facilities include treatment rooms, isolation wards for sick animals, regular health checkups, vaccination programs, and emergency care. We also conduct medical camps for local farmers' cattle.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 21 -->
+      <div class="faq-item border-2 border-black rounded-2xl overflow-hidden bg-white" data-category="general">
+        <div class="faq-question p-6 bg-[#FFF9F0] font-black flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
+          <span class="text-lg">Is Krushnai Goshala registered with the government?</span>
+          <i class="fas fa-chevron-down text-[#CD1C18] transition-transform"></i>
+        </div>
+        <div class="faq-answer p-6 border-t-2 border-black bg-white">
+          <p class="text-gray-700">Yes, we are registered under the Bombay Public Trust Act, 1950. We hold 12A, 80G, and CSR-1 registrations, making us eligible for tax-exempt donations and corporate CSR partnerships. All our documents are available for public verification.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- No Results Message -->
+    <div id="no-results" class="hidden text-center py-12">
+      <i class="fas fa-search text-5xl text-gray-300 mb-4"></i>
+      <h3 class="text-2xl font-bold text-gray-700 mb-2">No matching questions found</h3>
+      <p class="text-gray-500">Try searching with different keywords or browse our categories above.</p>
+    </div>
+
+    <!-- Still Have Questions? -->
+    <div class="mt-16 text-center bg-white p-10 rounded-3xl border-2 border-black shadow-[10px_10px_0px_0px_rgba(255,222,33,1)]">
+      <i class="fas fa-question-circle text-5xl text-[#CD1C18] mb-4"></i>
+      <h3 class="text-3xl font-black mb-4">Still Have Questions?</h3>
+      <p class="text-gray-600 mb-8 max-w-2xl mx-auto">Can't find the answer you're looking for? Please reach out to our team. We're happy to help!</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="connect/contact-us.html" class="bg-[#CD1C18] text-white px-8 py-4 rounded-full font-bold hover:bg-[#a81512] transition shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1">
+          <i class="fas fa-envelope mr-2"></i> Contact Us
+        </a>
+        <a href="tel:+919860562929" class="border-2 border-black text-black px-8 py-4 rounded-full font-bold hover:bg-[#FFDE21] transition">
+          <i class="fas fa-phone mr-2"></i> Call Us Now
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= QUICK SUPPORT SECTION ================= -->
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    
+    <div class="grid md:grid-cols-3 gap-8">
+      
+      <!-- Card 1: Call -->
+      <div class="text-center p-8 border-2 border-black rounded-3xl bg-[#FFF9F0] hover:scale-105 transition">
+        <div class="w-16 h-16 bg-[#CD1C18] rounded-full flex items-center justify-center mx-auto mb-4">
+          <i class="fas fa-phone-alt text-white text-2xl"></i>
+        </div>
+        <h3 class="font-black text-xl mb-2">Call Us</h3>
+        <p class="text-gray-600 mb-4">Mon-Sat, 10 AM - 6 PM</p>
+        <a href="tel:+919860562929" class="text-[#CD1C18] font-bold text-lg">+91 9860562929</a>
+      </div>
+
+      <!-- Card 2: Email -->
+      <div class="text-center p-8 border-2 border-black rounded-3xl bg-[#FFF9F0] hover:scale-105 transition">
+        <div class="w-16 h-16 bg-[#FF9933] rounded-full flex items-center justify-center mx-auto mb-4">
+          <i class="fas fa-envelope text-white text-2xl"></i>
+        </div>
+        <h3 class="font-black text-xl mb-2">Email Us</h3>
+        <p class="text-gray-600 mb-4">24/7 Support</p>
+        <a href="mailto:krushnaigoshala2017@gmail.com" class="text-[#FF9933] font-bold text-lg break-all">krushnaigoshala2017@gmail.com</a>
+      </div>
+
+      <!-- Card 3: WhatsApp -->
+      <div class="text-center p-8 border-2 border-black rounded-3xl bg-[#FFF9F0] hover:scale-105 transition">
+        <div class="w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center mx-auto mb-4">
+          <i class="fab fa-whatsapp text-white text-3xl"></i>
+        </div>
+        <h3 class="font-black text-xl mb-2">WhatsApp</h3>
+        <p class="text-gray-600 mb-4">Quick Response</p>
+        <a href="https://wa.me/919860562929" class="text-[#25D366] font-bold text-lg">+91 9860562929</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+ <!-- ========== Footer ========== -->
+  <footer class="bg-[#1a1a1a] text-gray-400 font-inter">
+    <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+
+        <div class="space-y-6">
+          <div class="flex items-center space-x-4">
+            <img src="../image\logo kru.png" alt="SSM Logo"
+              class="h-14 w-14 rounded-full border-2 border-gray-700 shadow-xl">
+            <div class="leading-tight">
+              <span class="block font-black text-lg text-[#FFDE21] tracking-tight">Krushnai Goshala Trust
+              </span>
+              <span class="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mt-1">कृष्णाई
+                गोशाळा ट्रस्ट
+                जामोद, महाराष्ट्र</span>
+            </div>
+          </div>
+          <p class="text-sm leading-relaxed">
+            Krushnai Goshala Trust, Jamod compassionately rescues, shelters, feeds, and provides lifelong
+            care to stray,
+            injured, and abandoned cows.
+          </p>
+          <div class="flex space-x-5 pt-2">
+            <a href="" class="hover:text-[#1877F2] transition-colors duration-300"><i
+                class="fab fa-facebook-f text-lg"></i></a>
+            <a href="" class="hover:text-[#E4405F] transition-colors duration-300"><i
+                class="fab fa-instagram text-lg"></i></a>
+            <a href="" class="hover:text-[#0A66C2] transition-colors duration-300"><i
+                class="fab fa-linkedin-in text-lg"></i></a>
+            <a href="" class="hover:text-[#FF0000] transition-colors duration-300"><i
+                class="fab fa-youtube text-lg"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-xs font-black text-white tracking-widest uppercase mb-6 border-l-4 border-[#CD1C18] pl-4">
+            Quick
+            Links</h3>
+          <ul class="space-y-3 text-sm">
+            <li><a href="../index.html" data-page="home" class="hover:text-[#FFDE21] transition-colors ">Home</a>
+            </li>
+            <li><a href="../about/Vision.html" data-page="about-overview"
+                class="hover:text-[#FFDE21] transition-colors ">About Us</a></li>
+
+            <li><a href="../Get in Touch/CSR-Partnerships.html" data-page="involved-csr"
+                class="hover:text-[#FFDE21] transition-colors ">CSR Partnerships</a></li>
+            <li><a href="../Get in Touch/Volunteer.html" data-page="impact-volunteer"
+                class="hover:text-[#FFDE21] transition-colors ">Volunteer</a></li>
+            <li><a href="../Get in Touch/Get-Involved.html" data-page="impact-gaushala"
+                class="hover:text-[#FFDE21] transition-colors ">Our Gaushala</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-xs font-black text-white tracking-widest uppercase mb-6 border-l-4 border-[#CD1C18] pl-4">
+            Connect</h3>
+          <ul class="space-y-3 text-sm">
+            <!-- <li><a href="#" data-page="involved-involved" class="hover:text-[#f6570e] transition-colors nav-link">get-involved</a></li> -->
+            <li><a href="../donate.html" data-page="involved-donate"
+                class="hover:text-[#FFDE21] transition-colors ">Support a Cause</a></li>
+            <li><a href="../Get in Touch/Contact-Us.html" data-page="connect-contact"
+                class="hover:text-[#FFDE21] transition-colors ">Contact Our Team</a></li>
+            <li><a href="../Get in Touch/Gallery.html" data-page="connect-gallery"
+                class="hover:text-[#FFDE21] transition-colors ">Gallery</a></li>
+            <li><a href="../Get in Touch/FAQ.html" data-page="involved-faq"
+                class="hover:text-[#FFDE21] transition-colors ">Donation FAQ</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-xs font-black text-white tracking-widest uppercase mb-6 border-l-4 border-[#CD1C18] pl-4">
+            Contact Info</h3>
+          <ul class="space-y-4 text-sm">
+            <li class="flex items-start">
+              <i class="fas fa-map-marker-alt mt-1 mr-4 text-[#CD1C18]"></i>
+              <span class="text-gray-300">Head Office: Krushnai Goshala Trust,
+                Gut No. 75 Įonkhel Chalthana Road Jamod, Ta. Jalgaon,
+                Dist. Buldhana, 443402 (Maharashtra) </span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-phone mr-4 text-[#CD1C18]"></i>
+              <span class="text-gray-300">+91 9860562929, +91 9011919575, +91 9970932315</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-envelope mr-4 text-[#CD1C18]"></i>
+              <span class="text-white font-bold">krushnaigoshala2017@gmail.com </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-12 pt-8 border-t border-gray-700">
+        <h4 class="text-sm font-semibold text-white tracking-wider uppercase mb-6 text-center">Trust
+          Certificates</h4>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <a href="../about/Downloads/Certificates/80G.html"
+            class="text-center p-4 bg-gray-700/50 rounded-lg hover:bg-gray-700 transition-colors cursor-pointer">
+            <div class="text-lg font-bold text-white mb-1">80G</div>
+            <div class="text-xs text-gray-400">Tax Exemption</div>
+          </a>
+          <a href="../about/Downloads/Certificates/12A.html"
+            class="text-center p-4 bg-gray-700/50 rounded-lg hover:bg-gray-700 transition-colors cursor-pointer">
+            <div class="text-lg font-bold text-white mb-1">12A</div>
+            <div class="text-xs text-gray-400">Registered Trust</div>
+          </a>
+          <a href="../about/Downloads/Certificates/CSR-1.html"
+            class="text-center p-4 bg-gray-700/50 rounded-lg hover:bg-gray-700 transition-colors cursor-pointer">
+            <div class="text-lg font-bold text-white mb-1">CSR-1</div>
+            <div class="text-xs text-gray-400">CSR Compliance</div>
+          </a>
+          <a href="../about/Downloads/Audit.html"
+            class="text-center p-4 bg-gray-700/50 rounded-lg hover:bg-gray-700 transition-colors cursor-pointer">
+            <div class="text-lg font-bold text-white mb-1">FAR</div>
+            <div class="text-xs text-gray-400">Financial Audit Report </div>
+          </a>
+        </div>
+      </div>
+
+
+      <div class="mt-16 pt-8 border-t border-gray-800 text-center">
+        <p class="text-[10px] font-bold text-gray-600 uppercase tracking-widest leading-relaxed">
+          © 2026 Krushnai Goshala Trust. All Rights Reserved. <class="md:hidden" Registered under Bombay Public Trust
+            Act, 1950.>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+
+<script>
+ //  MOBILE NAVBAR TOGGLE
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = mobileMenuBtn ? mobileMenuBtn.querySelector('i') : null;
+
+  if (mobileMenuBtn && mobileMenu) {
+    mobileMenuBtn.addEventListener('click', function () {
+      const isOpen = !mobileMenu.classList.contains('hidden');
+
+      if (isOpen) {
+        mobileMenu.classList.add('hidden');
+        if (menuIcon) {
+          menuIcon.classList.remove('fa-times');
+          menuIcon.classList.add('fa-bars');
+        }
+      } else {
+        mobileMenu.classList.remove('hidden');
+        if (menuIcon) {
+          menuIcon.classList.remove('fa-bars');
+          menuIcon.classList.add('fa-times');
+        }
+      }
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        if (menuIcon) {
+          menuIcon.classList.remove('fa-times');
+          menuIcon.classList.add('fa-bars');
+        }
+      });
+    });
+  }
+
+
+  //  MOBILE ACCORDION (dropdown inside mobile menu)
+  document.querySelectorAll('.mobile-accordion-btn').forEach(btn => {
+    btn.addEventListener('click', function () {
+      const content = this.nextElementSibling;
+      if (!content) return;
+
+      const chevron = this.querySelector('i');
+
+      content.classList.toggle('hidden');
+
+      if (chevron) {
+        chevron.style.transform = content.classList.contains('hidden')
+          ? 'rotate(0deg)'
+          : 'rotate(180deg)';
+      }
+    });
+  });
+
+
+  // FAQ Accordion Functionality
+  function toggleFAQ(button) {
+    // Close all other open FAQs
+    const allFAQs = document.querySelectorAll('.faq-question');
+    allFAQs.forEach(faq => {
+      if (faq !== button) {
+        faq.classList.remove('active');
+        const answer = faq.nextElementSibling;
+        const icon = faq.querySelector('i');
+        if (answer && answer.classList.contains('show')) {
+          answer.classList.remove('show');
+          if (icon) icon.style.transform = 'rotate(0deg)';
+        }
+      }
+    });
+
+    // Toggle current FAQ
+    button.classList.toggle('active');
+    const answer = button.nextElementSibling;
+    const icon = button.querySelector('i');
+    
+    if (answer.classList.contains('show')) {
+      answer.classList.remove('show');
+      if (icon) icon.style.transform = 'rotate(0deg)';
+    } else {
+      answer.classList.add('show');
+      if (icon) icon.style.transform = 'rotate(180deg)';
+    }
+  }
+
+  // Category Filter Function
+  function filterByCategory(category) {
+    const faqItems = document.querySelectorAll('.faq-item');
+    const categoryTitle = document.getElementById('current-category');
+    const noResults = document.getElementById('no-results');
+    let visibleCount = 0;
+
+    // Update category title
+    const categoryNames = {
+      'donation': 'Donation Questions',
+      'volunteer': 'Volunteering Questions',
+      'adoption': 'Cow Adoption Questions',
+      'tax': 'Tax Benefits Questions',
+      'visit': 'Visit Gaushala Questions',
+      'general': 'General Questions'
+    };
+    
+    categoryTitle.textContent = categoryNames[category] || 'All Questions';
+
+    // Filter items
+    faqItems.forEach(item => {
+      if (category === 'all' || item.dataset.category === category) {
+        item.style.display = 'block';
+        visibleCount++;
+      } else {
+        item.style.display = 'none';
+      }
+    });
+
+    // Show/hide no results message
+    if (visibleCount === 0) {
+      noResults.classList.remove('hidden');
+    } else {
+      noResults.classList.add('hidden');
+    }
+
+    // Close all open FAQs
+    document.querySelectorAll('.faq-answer.show').forEach(answer => {
+      answer.classList.remove('show');
+    });
+    document.querySelectorAll('.faq-question.active').forEach(question => {
+      question.classList.remove('active');
+    });
+    document.querySelectorAll('.faq-question i').forEach(icon => {
+      icon.style.transform = 'rotate(0deg)';
+    });
+  }
+
+  // Reset to all questions
+  function resetCategory() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    const categoryTitle = document.getElementById('current-category');
+    const noResults = document.getElementById('no-results');
+
+    categoryTitle.textContent = 'All Questions';
+    faqItems.forEach(item => {
+      item.style.display = 'block';
+    });
+    noResults.classList.add('hidden');
+
+    // Close all open FAQs
+    document.querySelectorAll('.faq-answer.show').forEach(answer => {
+      answer.classList.remove('show');
+    });
+    document.querySelectorAll('.faq-question.active').forEach(question => {
+      question.classList.remove('active');
+    });
+    document.querySelectorAll('.faq-question i').forEach(icon => {
+      icon.style.transform = 'rotate(0deg)';
+    });
+  }
+
+  // Search Functionality
+  document.getElementById('faq-search')?.addEventListener('keyup', function(e) {
+    if (e.key === 'Enter') {
+      performSearch();
+    }
+  });
+
+  document.querySelector('.search-box button')?.addEventListener('click', performSearch);
+
+  function performSearch() {
+    const searchTerm = document.getElementById('faq-search').value.toLowerCase().trim();
+    const faqItems = document.querySelectorAll('.faq-item');
+    const categoryTitle = document.getElementById('current-category');
+    const noResults = document.getElementById('no-results');
+    let visibleCount = 0;
+
+    if (searchTerm === '') {
+      resetCategory();
+      return;
+    }
+
+    categoryTitle.textContent = `Search Results: "${searchTerm}"`;
+
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question span').textContent.toLowerCase();
+      const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
+      
+      if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+        item.style.display = 'block';
+        visibleCount++;
+      } else {
+        item.style.display = 'none';
+      }
+    });
+
+    if (visibleCount === 0) {
+      noResults.classList.remove('hidden');
+    } else {
+      noResults.classList.add('hidden');
+    }
+
+    // Close all open FAQs
+    document.querySelectorAll('.faq-answer.show').forEach(answer => {
+      answer.classList.remove('show');
+    });
+    document.querySelectorAll('.faq-question.active').forEach(question => {
+      question.classList.remove('active');
+    });
+    document.querySelectorAll('.faq-question i').forEach(icon => {
+      icon.style.transform = 'rotate(0deg)';
+    });
+  }
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function (e) {
+      const targetId = this.getAttribute('href').replace('#', '');
+      const target = document.getElementById(targetId);
+      if (target) {
+        e.preventDefault();
+        const yOffset = -80;
+        const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

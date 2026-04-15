@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Krushnai Goshala Trust</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #FF9933 0%, #CD1C18 50%, #FFE6CC 100%);
+        }
+
+        .playfair {
+            font-family: 'Playfair Display', serif;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeInUp 1.2s ease-out forwards;
+        }
+
+        .nav-link.active {
+            color: #CD1C18;
+            font-weight: 600;
+        }
+
+        /* Gallery Filter Styles */
+        .filter-btn.active {
+            background-color: #CD1C18;
+            color: white;
+            border-color: #CD1C18;
+        }
+
+        /* Lightbox Styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            max-width: 90vw;
+            max-height: 90vh;
+            position: relative;
+            animation: lightboxFade 0.3s ease;
+        }
+
+        @keyframes lightboxFade {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .lightbox-img {
+            max-width: 100%;
+            max-height: 85vh;
+            object-fit: contain;
+            border: 4px solid white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 50px;
+            height: 50px;
+            background: #CD1C18;
+            border: 2px solid white;
+            border-radius: 50%;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            transform: rotate(90deg);
+            background: #a81512;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: #CD1C18;
+            border: 2px solid white;
+            border-radius: 50%;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-nav:hover {
+            background: #a81512;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .lightbox-prev {
+            left: -70px;
+        }
+
+        .lightbox-next {
+            right: -70px;
+        }
+
+        .lightbox-caption {
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: white;
+            font-size: 16px;
+            font-weight: 500;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            border-radius: 30px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Gallery Item Hover Effect */
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(205, 28, 24, 0.9), rgba(0, 0, 0, 0.5));
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            color: white;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay h3 {
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-overlay p {
+            transform: translateY(20px);
+            transition: transform 0.3s ease 0.1s;
+        }
+
+        .gallery-item:hover .gallery-overlay h3,
+        .gallery-item:hover .gallery-overlay p {
+            transform: translateY(0);
+        }
+
+        .gallery-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #FFDE21;
+            color: #1a1a1a;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            z-index: 10;
+            border: 1px solid black;
+        }
+
+        /* Masonry Grid */
+        .masonry-grid {
+            column-count: 4;
+            column-gap: 20px;
+        }
+
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 1024px) {
+            .masonry-grid {
+                column-count: 3;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .masonry-grid {
+                column-count: 2;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .masonry-grid {
+                column-count: 1;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-[#FFF9F0]">
+
+    <!-- ========== Header / Navigation ========== -->
+<header class="bg-white/95 backdrop-blur-sm shadow-md fixed top-0 left-0 right-0 z-50 border-b border-gray-100">
+  <div class="bg-[#1a1a1a] text-gray-400 py-2 border-b border-gray-800 hidden lg:block">
+    <div
+      class="mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center text-[11px] font-bold uppercase tracking-wider">
+      <div class="flex items-center space-x-6">
+        <span class="flex items-center">
+          <i class="fas fa-map-marker-alt mr-2 text-[#f6570e]"></i> Jalgaon, India
+        </span>
+        <span class="flex items-center">
+          <i class="far fa-clock mr-2 text-[#f6570e]"></i> Mon - Sat : 10.00 AM - 06.00 PM
+        </span>
+      </div>
+
+      <div class="flex items-center space-x-6">
+        <a href="tel:+919209092150" class="hover:text-white transition-colors">
+          <i class="fas fa-phone-alt mr-2 text-[#f6570e]"></i>Contact us : +91 9860562929, +91 9011919575,
+          +91
+          9970932315
+        </a>
+        <a href="mailto:krushnaigoshala2017@gmail.com" class="hover:text-white transition-colors lowercase">
+          <i class="fas fa-envelope mr-2 text-[#f6570e]"></i> krushnaigoshala2017@gmail.com
+        </a>
+
+        <!-- SOCIAL ICONS -->
+        <div class="flex items-center space-x-3 border-l border-gray-700 pl-4">
+          <a href="" class="hover:text-sky-400" title="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="" class="hover:text-[#E4405F]" title="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="" class="hover:text-[#0A66C2]" title="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="" class="hover:text-red-500" title="YouTube">
+            <i class="fab fa-youtube"></i>
+          </a>
+          <!-- <a href="#" class="hover:text-sky-400" title="Twitter / X">
+                    <i class="fab fa-twitter"></i> -->
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Navbar -->
+  <nav class="glass-effect">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        <!-- Logo -->
+        <div class="flex items-center space-x-3">
+          <a href="" class="flex items-center space-x-3">
+            <div class="static md:absolute md:left-10 md:top-full md:-translate-y-1/2 md:z-50 group flex items-center">
+              <div
+                class="p-0 md:p-1.5 rounded-full md:bg-white/10 md:backdrop-blur-sm md:border md:border-slate-200/50 transition-all duration-500 ease-in-out group-hover:scale-105 md:group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(0,0,0,0.1)] group-hover:bg-white/20">
+                <img src="../image/logo kru.png" alt="SSM Logo "
+                  class="h-20 w-20 sm:h-24 sm:w-24 md:h-36 md:w-36 object-contain rounded-full border-2 md:border-[3px] border-white shadow-sm transition-all duration-500 ease-in-out group-hover:border-blue-400 group-hover:brightness-105">
+                <div
+                  class="absolute inset-0 rounded-full border-2 border-transparent group-hover:border-blue-400/20 group-hover:scale-125 transition-all duration-700 ease-out opacity-0 group-hover:opacity-100">
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden lg:flex items-center space-x-8">
+          <!-- Home -->
+          <a href="../index.html"
+            class=" text-gray-700 font-bold hover:text-[#CD1C18] transition ">Home</a>
+
+          <!-- About Dropdown -->
+          <div class="relative group">
+            <button class="flex items-center space-x-1 text-gray-700 hover:text-[#CD1C18] transition">
+              <span>About</span>
+              <i class="fas fa-chevron-down text-sm"></i>
+            </button>
+            <div
+              class="absolute left-0 mt-2 w-64 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 dropdown-enter">
+              <div class="py-2">
+                <a href="../about/Vision.html"
+                  class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Vision
+                  &
+                  Mission</a>
+                <a href="../about/value.html"
+                  class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Our
+                  Values</a>
+                <a href="../about/Approach.html"
+                  class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Our
+                  Approach</a>
+                <a href="../about/Leadership.html"
+                  class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Leadership</a>
+
+                <!-- Downloads Nested Dropdown -->
+                <div class="relative group/sub">
+                  <button
+                    class="w-full flex items-center justify-between px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">
+                    <span>Downloads</span>
+                    <i class="fas fa-chevron-right text-sm"></i>
+                  </button>
+                  <div
+                    class="absolute left-full top-0 w-64 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-300 ml-2">
+                    <div class="py-2">
+                      <!-- Certificates Nested -->
+                      <div class="relative group/sub2">
+                        <button
+                          class="w-full flex items-center justify-between px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">
+                          <span>Certificates</span>
+                          <i class="fas fa-chevron-right text-sm"></i>
+                        </button>
+                        <div
+                          class="absolute left-full top-0 w-64 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover/sub2:opacity-100 group-hover/sub2:visible transition-all duration-300 ml-2">
+                          <a href="../about/Downloads/Certificates/Registration.html"
+                            class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Registration
+                            Certificate</a>
+                          <a href="../about/Downloads/Certificates/12A.html"
+                            class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">12A
+                            Certificate</a>
+                          <a href="../about/Downloads/Certificates/80G.html"
+                            class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">80G
+                            Certificat/>
+                            <a href="../about/Downloads/Certificates/CSR-1.html"
+                              class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">CSR-1
+                              Certificate</a>
+                        </div>
+                      </div>
+                      <a href="../about/Downloads/Audit.html"
+                        class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Audit
+                        Report</a>
+                      <a href="../about/Downloads/Residential.html"
+                        class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Residential
+                        Proof</a>
+                      <a href="../about/Downloads/Memorandum.html"
+                        class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Memorandum
+                        of
+                        Association</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Our Initiatives Dropdown -->
+          <div class="relative group">
+            <button class="flex items-center space-x-1 text-gray-700 hover:text-[#CD1C18] transition">
+              <span>Our Initiatives</span>
+              <i class="fas fa-chevron-down text-sm"></i>
+            </button>
+            <div
+              class="absolute left-0 mt-2 w-56 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 dropdown-enter">
+              <a href="../Our Initiatives/Stray-Cattle-Rescue.html"
+                class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Stray
+                Cattle
+                Rescue</a>
+              <a href="../Our Initiatives/Feeding-Program.html"
+                class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Feeding
+                Program</a>
+              <a href="../Our Initiatives/Shelter-Management.html"
+                class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Shelter
+                Management</a>
+              <a href="../Our Initiatives/Veterinary-Care.html"
+                class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Veterinary
+                Care</a>
+            </div>
+          </div>
+
+          <!-- Contributions Dropdown -->
+          <div class="relative group">
+            <button class="flex items-center space-x-1 text-gray-700 hover:text-[#CD1C18] transition">
+              <span>Contributions</span>
+              <i class="fas fa-chevron-down text-sm"></i>
+            </button>
+            <div
+              class="absolute left-0 mt-2 w-56 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 dropdown-enter">
+              <div class="relative group/sub">
+                <button
+                  class="w-full flex items-center justify-between px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">
+                  <span>Infrastructure</span>
+                  <i class="fas fa-chevron-right text-sm"></i>
+                </button>
+                <div
+                  class="absolute left-full top-0 w-56 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-300 ml-2">
+                  <a href="../Contributions/Infrastructure/Shelter.html"
+                    class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Shelter
+                    Area</a>
+                  <a href="../Contributions/Water.html"
+                    class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Water
+                    & Feeding</a>
+                  <a href="../Contributions/Infrastructure/Medical.html"
+                    class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Medical
+                    Care Unit</a>
+                </div>
+              </div>
+              <a href="../Contributions/Infrastructure/Succes.html"
+                class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Success
+                Story</a>
+            </div>
+          </div>
+
+          <!--Get in Touch Dropdown -->
+          <div class="relative group">
+            <button class="flex items-center space-x-1 text-gray-700 hover:text-[#CD1C18] transition">
+              <span>Get in Touch</span>
+              <i class="fas fa-chevron-down text-sm"></i>
+            </button>
+            <div
+              class="absolute left-0 mt-2 w-56 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 dropdown-enter">
+              <a href="../Get in Touch/Get-Involved.html"
+                class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Get
+                Involved</a>
+              <a href="../Get in Touch/Contact-Us.html"
+                class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Contact
+                Us</a>
+              <a href="../Get in Touch/CSR-Partnerships.html"
+                class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">CSR
+                Partnerships</a>
+              <a href="../Get in Touch/Volunteer.html"
+                class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">Volunteer</a>
+              <a href="../Get in Touch/Gallery.html"
+                class="nav-link block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white active">Gallery</a>
+              <a href="../Get in Touch/FAQ.html"
+                class="block px-4 py-2 text-gray-700 hover:bg-[#CD1C18] hover:text-white">FAQ</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Donate Button -->
+        <a href="../donate.html"
+          class="hidden lg:block bg-[#CD1C18] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#CD1C18] transition pulse-animation">
+          <i class="fas fa-heart mr-2"></i>Donate Now
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="lg:hidden text-2xl text-gray-700">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-white w-full max-h-[80vh] overflow-y-auto mobile-menu">
+      <div class="px-4 py-2 space-y-2">
+        <a href="../index.html" class="block py-3 text-gray-700 border-b">Home</a>
+
+        <!-- Mobile About Accordion -->
+        <div class="border-b">
+          <button class="mobile-accordion-btn w-full flex justify-between items-center py-3 text-gray-700"
+            data-target="about-mobile">
+            <span>About</span>
+            <i class="fas fa-chevron-down transition-transform"></i>
+          </button>
+          <div id="about-mobile" class="hidden pl-4 pb-3 space-y-2">
+            <a href="../about/Vision.html" class="block py-2 text-gray-600">Vision & Mission</a>
+            <a href="../about/value.html" class="block py-2 text-gray-600">Our Values</a>
+            <a href="../about/Approach.html" class="block py-2 text-gray-600">Our Approach</a>
+            <a href="../about/Leadership.html" class="block py-2 text-gray-600">Leadership</a>
+
+            <!-- Mobile Downloads -->
+            <div class="pl-4 border-l-2 border-gray-200">
+              <button class="mobile-accordion-btn w-full flex justify-between items-center py-2 text-gray-600">
+                <span>Downloads</span>
+                <i class="fas fa-chevron-down text-sm"></i>
+              </button>
+              <div class="hidden pl-4 space-y-2">
+                <div class="pl-4 border-l-2 border-gray-200">
+                  <button class="mobile-accordion-btn w-full flex justify-between items-center py-2 text-gray-600">
+                    <span>Certificates</span>
+                    <i class="fas fa-chevron-down text-sm"></i>
+                  </button>
+                  <div class="hidden pl-4 space-y-2">
+                    <a href="../about/Downloads/Certificates/Registration.html"
+                      class="block py-2 text-gray-600">Registration Certificate</a>
+                    <a href="../about/Downloads/Certificates/12A.html" class="block py-2 text-gray-600">12A
+                      Certificate</a>
+                    <a href="../about/Downloads/Certificates/80G.html" class="block py-2 text-gray-600">80G
+                      Certificate</a>
+                    <a href="../about/Downloads/Certificates/CSR-1.html" class="block py-2 text-gray-600">CSR-1
+                      Certificate</a>
+                  </div>
+                </div>
+                <a href="../about/Downloads/Audit.html" class="block py-2 text-gray-600">Audit
+                  Report</a>
+                <a href="../about/Downloads/Residential.html" class="block py-2 text-gray-600">Residential Proof</a>
+                <a href="../about/Downloads/Memorandum.html" class="block py-2 text-gray-600">Memorandum of
+                  Association</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile Our Initiatives -->
+        <div class="border-b">
+          <button class="mobile-accordion-btn w-full flex justify-between items-center py-3 text-gray-700">
+            <span>Our Initiatives</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="hidden pl-4 pb-3 space-y-2">
+            <a href="../Our Initiatives/Stray-Cattle-Rescue.html" class="block py-2 text-gray-600">Stray
+              Cattle
+              Rescue</a>
+            <a href="../Our Initiatives/Feeding-Program.html" class="block py-2 text-gray-600">Feeding
+              Program</a>
+            <a href="../Our Initiatives/Shelter-Management.html" class="block py-2 text-gray-600">Shelter
+              Management</a>
+            <a href="../Our Initiatives/Veterinary-Care.html" class="block py-2 text-gray-600">Veterinary Care</a>
+          </div>
+        </div>
+
+        <!-- Mobile Contributions -->
+        <div class="border-b">
+          <button class="mobile-accordion-btn w-full flex justify-between items-center py-3 text-gray-700">
+            <span>Contributions</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="hidden pl-4 pb-3 space-y-2">
+            <div class="pl-4 border-l-2 border-gray-200">
+              <button class="mobile-accordion-btn w-full flex justify-between items-center py-2 text-gray-600">
+                <span>Infrastructure</span>
+                <i class="fas fa-chevron-down text-sm"></i>
+              </button>
+              <div class="hidden pl-4 space-y-2">
+                <a href="../Contributions/Infrastructure/Shelter.html" class="block py-2 text-gray-600">Shelter
+                  Area</a>
+                <a href="../Contributions/Water.html" class="block py-2 text-gray-600">Water &
+                  Feeding</a>
+                <a href="../Contributions/Infrastructure/Medical.html" class="block py-2 text-gray-600">Medical Care
+                  Unit</a>
+              </div>
+            </div>
+            <a href="../Contributions/Infrastructure/Succes.html" class="block py-2 text-gray-600">Success Story</a>
+          </div>
+        </div>
+
+        <!-- Mobile Get in Touch-->
+        <div class="border-b">
+          <button class="mobile-accordion-btn w-full flex justify-between items-center py-3 text-gray-700">
+            <span>Get in Touch</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="hidden pl-4 pb-3 space-y-2">
+            <a href="../Get in Touch/Get-Involved.html" class="block py-2 text-gray-600">Get
+              Involved</a>
+            <a href="../Get in Touch/Contact-Us.html" class="block py-2 text-gray-600">Contact Us</a>
+            <a href="../Get in Touch/CSR-Partnerships.html" class="block py-2 text-gray-600">CSR
+              Partnerships</a>
+            <a href="../Get in Touch/Volunteer.html" class="block py-2 text-gray-600">Volunteer</a>
+            <a href="../Get in Touch/Gallery.html" class="block py-2 text-gray-600">Gallery</a>
+            <a href="#" class="block py-2 text-gray-600">FAQ</a>
+          </div>
+        </div>
+
+        <a href="#donate" class="block mt-4 bg-[#FF9933] text-white text-center px-6 py-3 rounded-full font-semibold">
+          <i class="fas fa-heart mr-2"></i>Donate Now
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+    <!-- ================= GALLERY HERO SECTION ================= -->
+    <section class="relative pt-40 pb-24 overflow-hidden">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1464226180484-05a7ee8f2a5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                alt="Gallery Hero" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-[#1a1a1a] via-[#1a1a1a]/90 to-[#CD1C18]/70"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="relative z-10 max-w-7xl mx-auto px-6 text-center">
+            <div class="animate-fade-in">
+                <span
+                    class="inline-block bg-[#FFDE21] text-[#1a1a1a] text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-widest mb-6">
+                    <i class="fas fa-camera-retro mr-2"></i> Visual Stories
+                </span>
+                <h1 class="playfair font-black text-white leading-tight mb-6 text-5xl md:text-7xl">
+                    Our Gaushala <span class="text-[#FFDE21]">Gallery</span>
+                </h1>
+                <p class="text-xl text-white/90 max-w-3xl mx-auto mb-10 font-medium">
+                    A visual journey of our love, care, and dedication towards Gau Mata. Every picture tells a story of
+                    compassion and hope.
+                </p>
+
+                <!-- Stats Row -->
+                <div class="flex flex-wrap justify-center gap-8 text-white">
+                    <div class="text-center">
+                        <div class="text-3xl font-black text-[#FFDE21]">500+</div>
+                        <div class="text-sm uppercase tracking-wider">Photos</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-black text-[#FFDE21]">10+</div>
+                        <div class="text-sm uppercase tracking-wider">Categories</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-black text-[#FFDE21]">2017</div>
+                        <div class="text-sm uppercase tracking-wider">Since</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= GALLERY FILTERS ================= -->
+    <section class="py-12 bg-white border-b-2 border-black">
+        <div class="max-w-7xl mx-auto px-6">
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-3 mb-8" id="gallery-filters">
+                <button
+                    class="filter-btn active px-6 py-3 border-2 border-black rounded-full font-bold text-sm transition-all hover:scale-105"
+                    data-filter="all">
+                    <i class="fas fa-th-large mr-2"></i>All Photos
+                </button>
+                <button
+                    class="filter-btn px-6 py-3 border-2 border-black rounded-full font-bold text-sm transition-all hover:scale-105"
+                    data-filter="rescue">
+                    <i class="fas fa-truck mr-2"></i>Rescue Operations
+                </button>
+                <button
+                    class="filter-btn px-6 py-3 border-2 border-black rounded-full font-bold text-sm transition-all hover:scale-105"
+                    data-filter="feeding">
+                    <i class="fas fa-seedling mr-2"></i>Feeding Programs
+                </button>
+                <button
+                    class="filter-btn px-6 py-3 border-2 border-black rounded-full font-bold text-sm transition-all hover:scale-105"
+                    data-filter="medical">
+                    <i class="fas fa-stethoscope mr-2"></i>Medical Care
+                </button>
+                <button
+                    class="filter-btn px-6 py-3 border-2 border-black rounded-full font-bold text-sm transition-all hover:scale-105"
+                    data-filter="shelter">
+                    <i class="fas fa-home mr-2"></i>Shelter Life
+                </button>
+                <!-- <button class="filter-btn px-6 py-3 border-2 border-black rounded-full font-bold text-sm transition-all hover:scale-105" data-filter="events">
+        <i class="fas fa-calendar-alt mr-2"></i>Events & Celebrations
+      </button> -->
+                <button
+                    class="filter-btn px-6 py-3 border-2 border-black rounded-full font-bold text-sm transition-all hover:scale-105"
+                    data-filter="volunteers">
+                    <i class="fas fa-hands-helping mr-2"></i>Volunteers
+                </button>
+            </div>
+
+            <!-- Active Filter Indicator -->
+            <div class="text-center text-sm text-gray-500">
+                <span id="active-filter-display">Showing: <span class="font-bold text-[#CD1C18]">All
+                        Photos</span></span>
+                <span class="mx-2">|</span>
+                <span id="photo-count">42 photos</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= GALLERY GRID (MASONRY STYLE) ================= -->
+    <section class="py-16 bg-[#FFF9F0]">
+        <div class="max-w-7xl mx-auto px-6">
+
+            <!-- Masonry Grid -->
+            <div class="masonry-grid" id="gallery-grid">
+
+                <!-- Rescue Operations Category -->
+                <div class="masonry-item gallery-item" data-category="rescue">
+                    <div
+                        class="relative p-2 bg-white border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(205,28,24,1)] transition-all duration-300">
+                        <img src="https://www.jivdayatrust.org/wp-content/uploads/2020/05/DSC_2214-1024x682.jpg"
+                            alt="Cow Rescue Operation" class="w-full h-auto rounded-sm" onclick="openLightbox(0)">
+                        <div class="gallery-badge">Rescue</div>
+                        <div class="gallery-overlay" onclick="openLightbox(0)">
+                            <h3 class="font-black text-lg">Emergency Rescue</h3>
+                            <p class="text-sm">Injured cow rescued from roadside</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="masonry-item gallery-item" data-category="rescue">
+                    <div
+                        class="relative p-2 bg-white border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(205,28,24,1)] transition-all duration-300">
+                        <img src="https://saveindiancows.org/wp-content/uploads/2022/03/Gallery1000X700.jpg"
+                            alt="Rescue Team" class="w-full h-auto rounded-sm" onclick="openLightbox(1)">
+                        <div class="gallery-badge">Rescue</div>
+                        <div class="gallery-overlay" onclick="openLightbox(1)">
+                            <h3 class="font-black text-lg">Rescue Team in Action</h3>
+                            <p class="text-sm">Saving a cow from a dangerous situation</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feeding Programs Category -->
+                <div class="masonry-item gallery-item" data-category="feeding">
+                    <div
+                        class="relative p-2 bg-white border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(205,28,24,1)] transition-all duration-300">
+                        <img src="https://saveindiancows.org/wp-content/uploads/2019/01/cow-feed-bannana-1024x720.jpg"
+                            alt="Feeding Program" class="w-full h-auto rounded-sm" onclick="openLightbox(2)">
+                        <div class="gallery-badge">Feeding</div>
+                        <div class="gallery-overlay" onclick="openLightbox(2)">
+                            <h3 class="font-black text-lg">Daily Feeding</h3>
+                            <p class="text-sm">Nutritious fodder for all cows</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="masonry-item gallery-item" data-category="feeding">
+                    <div
+                        class="relative p-2 bg-white border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(205,28,24,1)] transition-all duration-300">
+                        <img src="https://iskcongev.com/wp-content/uploads/2023/02/about-goshala-2.jpg"
+                            alt="Cows Eating" class="w-full h-auto rounded-sm" onclick="openLightbox(3)">
+                        <div class="gallery-badge">Feeding</div>
+                        <div class="gallery-overlay" onclick="openLightbox(3)">
+                            <h3 class="font-black text-lg">Happy Cows</h3>
+                            <p class="text-sm">Cows enjoying their meal</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Medical Care Category -->
+                <div class="masonry-item gallery-item" data-category="medical">
+                    <div
+                        class="relative p-2 bg-white border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(205,28,24,1)] transition-all duration-300">
+                        <img src="https://www.jivdayatrust.org/wp-content/uploads/2020/05/IMG20200130WA0027.jpg"
+                            alt="Veterinary Care" class="w-full h-auto rounded-sm" onclick="openLightbox(4)">
+                        <div class="gallery-badge">Medical</div>
+                        <div class="gallery-overlay" onclick="openLightbox(4)">
+                            <h3 class="font-black text-lg">Veterinary Treatment</h3>
+                            <p class="text-sm">Regular health checkups</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="masonry-item gallery-item" data-category="medical">
+                    <div
+                        class="relative p-2 bg-white border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(205,28,24,1)] transition-all duration-300">
+                        <img src="https://www.bvashram.org/wp-content/uploads/2021/02/goshala-16.jpg" alt="Medical Camp"
+                            class="w-full h-auto rounded-sm" onclick="openLightbox(5)">
+                        <div class="gallery-badge">Medical</div>
+                        <div class="gallery-overlay" onclick="openLightbox(5)">
+                            <h3 class="font-black text-lg">Medical Camp</h3>
+                            <p class="text-sm">Specialized treatment for injured cows</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shelter Life Category -->
+                <div class="masonry-item gallery-item" data-category="shelter">
+                    <div
+                        class="relative p-2 bg-white border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(205,28,24,1)] transition-all duration-300">
+                        <img src="https://saveindiancows.org/wp-content/uploads/2018/11/Goshala-1024x683.jpeg"
+                            alt="Gaushala Shelter" class="w-full h-auto rounded-sm" onclick="openLightbox(6)">
+                        <div class="gallery-badge">Shelter</div>
+                        <div class="gallery-overlay" onclick="openLightbox(6)">
+                            <h3 class="font-black text-lg">Spacious Shelter</h3>
+                            <p class="text-sm">Clean and ventilated living space</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="masonry-item gallery-item" data-category="shelter">
+                    <div
+                        class="relative p-2 bg-white border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(205,28,24,1)] transition-all duration-300">
+                        <img src="https://primary-assets.heartfulness.org/donation-assets/G_Feature_Banner_f139305747.png"
+                            alt="Cows Resting" class="w-full h-auto rounded-sm" onclick="openLightbox(7)">
+                        <div class="gallery-badge">Shelter</div>
+                        <div class="gallery-overlay" onclick="openLightbox(7)">
+                            <h3 class="font-black text-lg">Peaceful Environment</h3>
+                            <p class="text-sm">Cows resting in their home</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Events & Celebrations -->
+                <!-- <div class="masonry-item gallery-item" data-category="events">
+        <div class="relative p-2 bg-white border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(205,28,24,1)] transition-all duration-300">
+          <img src="image/c.png" 
+               alt="Gau Puja" 
+               class="w-full h-auto rounded-sm"
+               onclick="openLightbox(8)">
+          <div class="gallery-badge">Events</div>
+          <div class="gallery-overlay" onclick="openLightbox(8)">
+            <h3 class="font-black text-lg">Gau Puja</h3>
+            <p class="text-sm">Special ceremony honoring cows</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="masonry-item gallery-item" data-category="events">
+        <div class="relative p-2 bg-white border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(205,28,24,1)] transition-all duration-300">
+          <img src="image/c2.png" 
+               alt="Festival Celebration" 
+               class="w-full h-auto rounded-sm"
+               onclick="openLightbox(9)">
+          <div class="gallery-badge">Events</div>
+          <div class="gallery-overlay" onclick="openLightbox(9)">
+            <h3 class="font-black text-lg">Festival Celebration</h3>
+            <p class="text-sm">Decorating cows for festivals</p>
+          </div>
+        </div>
+      </div> -->
+
+                <!-- Volunteers Category -->
+                <div class="masonry-item gallery-item" data-category="volunteers">
+                    <div
+                        class="relative p-2 bg-white border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(205,28,24,1)] transition-all duration-300">
+                        <img src="https://www.jivdayatrust.org/wp-content/uploads/2020/05/DSC_2214-1024x682.jpg"
+                            alt="Volunteers" class="w-full h-auto rounded-sm" onclick="openLightbox(10)">
+                        <div class="gallery-badge">Volunteers</div>
+                        <div class="gallery-overlay" onclick="openLightbox(10)">
+                            <h3 class="font-black text-lg">Volunteer Group</h3>
+                            <p class="text-sm">Dedicated volunteers serving cows</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="masonry-item gallery-item" data-category="volunteers">
+                    <div
+                        class="relative p-2 bg-white border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(205,28,24,1)] transition-all duration-300">
+                        <img src="https://saveindiancows.org/wp-content/uploads/2018/11/Goshala-1024x683.jpeg"
+                            alt="Cleaning Activity" class="w-full h-auto rounded-sm" onclick="openLightbox(11)">
+                        <div class="gallery-badge">Volunteers</div>
+                        <div class="gallery-overlay" onclick="openLightbox(11)">
+                            <h3 class="font-black text-lg">Cleaning Drive</h3>
+                            <p class="text-sm">Volunteers maintaining shelter hygiene</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Images -->
+                <div class="masonry-item gallery-item" data-category="shelter">
+                    <div
+                        class="relative p-2 bg-white border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(205,28,24,1)] transition-all duration-300">
+                        <img src="https://www.bvashram.org/wp-content/uploads/2021/02/goshala-16.jpg" alt="Night View"
+                            class="w-full h-auto rounded-sm" onclick="openLightbox(12)">
+                        <div class="gallery-badge">Shelter</div>
+                        <div class="gallery-overlay" onclick="openLightbox(12)">
+                            <h3 class="font-black text-lg">Night Shelter</h3>
+                            <p class="text-sm">Safe shelter at night</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="masonry-item gallery-item" data-category="feeding">
+                    <div
+                        class="relative p-2 bg-white border-2 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(205,28,24,1)] transition-all duration-300">
+                        <img src="https://saveindiancows.org/wp-content/uploads/2019/01/cow-feed-bannana-1024x720.jpg"
+                            alt="Green Fodder" class="w-full h-auto rounded-sm" onclick="openLightbox(13)">
+                        <div class="gallery-badge">Feeding</div>
+                        <div class="gallery-overlay" onclick="openLightbox(13)">
+                            <h3 class="font-black text-lg">Fresh Green Fodder</h3>
+                            <p class="text-sm">Daily supply of nutritious food</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="text-center mt-12">
+                <button id="load-more"
+                    class="inline-block bg-black text-white font-black px-10 py-4 border-2 border-black hover:bg-[#CD1C18] hover:border-[#CD1C18] transition-all shadow-[6px_6px_0px_0px_rgba(205,28,24,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 uppercase tracking-widest">
+                    <i class="fas fa-sync-alt mr-2"></i> Load More Photos
+                </button>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- ================= CALL TO ACTION ================= -->
+    <section class="py-20 gradient-bg text-center text-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                Visit Our Gaushala 📸
+            </h2>
+            <p class="text-lg md:text-xl mb-10">
+                Experience the divine presence of Gau Mata yourself. Plan a visit to Krushnai Goshala and witness our
+                service firsthand.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="connect/contact-us.html"
+                    class="inline-block bg-white text-[#CD1C18] px-10 py-4 rounded-full font-bold text-lg shadow-xl hover:scale-110 hover:shadow-2xl transition">
+                    <i class="fas fa-calendar-check mr-2"></i> Schedule a Visit
+                </a>
+                <a href="connect/contact-us.html"
+                    class="inline-block border-2 border-white text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-[#CD1C18] transition">
+                    <i class="fas fa-phone mr-2"></i> Contact Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= LIGHTBOX ================= -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" onclick="closeLightbox()">
+                <i class="fas fa-times"></i>
+            </button>
+            <button class="lightbox-nav lightbox-prev" onclick="changeImage(-1)">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <img id="lightbox-img" class="lightbox-img" src="" alt="Gallery Image">
+            <button class="lightbox-nav lightbox-next" onclick="changeImage(1)">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <div id="lightbox-caption" class="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <!-- ================= VIDEO MODAL ================= -->
+    <div id="videoModal" class="fixed inset-0 bg-black/95 hidden items-center justify-center z-[9999] p-4">
+        <div class="relative w-full max-w-4xl">
+            <button onclick="closeVideoModal()"
+                class="absolute -top-12 right-0 text-white text-2xl hover:text-[#CD1C18] transition">
+                <i class="fas fa-times-circle"></i>
+            </button>
+            <div class="relative pb-[56.25%] h-0">
+                <iframe id="videoFrame" class="absolute top-0 left-0 w-full h-full rounded-2xl border-4 border-white"
+                    src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+
+ <!-- ========== Footer ========== -->
+  <footer class="bg-[#1a1a1a] text-gray-400 font-inter">
+    <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+
+        <div class="space-y-6">
+          <div class="flex items-center space-x-4">
+            <img src="../image\logo kru.png" alt="SSM Logo"
+              class="h-14 w-14 rounded-full border-2 border-gray-700 shadow-xl">
+            <div class="leading-tight">
+              <span class="block font-black text-lg text-[#FFDE21] tracking-tight">Krushnai Goshala Trust
+              </span>
+              <span class="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mt-1">कृष्णाई
+                गोशाळा ट्रस्ट
+                जामोद, महाराष्ट्र</span>
+            </div>
+          </div>
+          <p class="text-sm leading-relaxed">
+            Krushnai Goshala Trust, Jamod compassionately rescues, shelters, feeds, and provides lifelong
+            care to stray,
+            injured, and abandoned cows.
+          </p>
+          <div class="flex space-x-5 pt-2">
+            <a href="" class="hover:text-[#1877F2] transition-colors duration-300"><i
+                class="fab fa-facebook-f text-lg"></i></a>
+            <a href="" class="hover:text-[#E4405F] transition-colors duration-300"><i
+                class="fab fa-instagram text-lg"></i></a>
+            <a href="" class="hover:text-[#0A66C2] transition-colors duration-300"><i
+                class="fab fa-linkedin-in text-lg"></i></a>
+            <a href="" class="hover:text-[#FF0000] transition-colors duration-300"><i
+                class="fab fa-youtube text-lg"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-xs font-black text-white tracking-widest uppercase mb-6 border-l-4 border-[#CD1C18] pl-4">
+            Quick
+            Links</h3>
+          <ul class="space-y-3 text-sm">
+            <li><a href="../index.html" data-page="home" class="hover:text-[#FFDE21] transition-colors ">Home</a>
+            </li>
+            <li><a href="../about/Vision.html" data-page="about-overview"
+                class="hover:text-[#FFDE21] transition-colors ">About Us</a></li>
+
+            <li><a href="../Get in Touch/CSR-Partnerships.html" data-page="involved-csr"
+                class="hover:text-[#FFDE21] transition-colors ">CSR Partnerships</a></li>
+            <li><a href="../Get in Touch/Volunteer.html" data-page="impact-volunteer"
+                class="hover:text-[#FFDE21] transition-colors ">Volunteer</a></li>
+            <li><a href="../Get in Touch/Get-Involved.html" data-page="impact-gaushala"
+                class="hover:text-[#FFDE21] transition-colors ">Our Gaushala</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-xs font-black text-white tracking-widest uppercase mb-6 border-l-4 border-[#CD1C18] pl-4">
+            Connect</h3>
+          <ul class="space-y-3 text-sm">
+            <!-- <li><a href="#" data-page="involved-involved" class="hover:text-[#f6570e] transition-colors nav-link">get-involved</a></li> -->
+            <li><a href="../donate.html" data-page="involved-donate"
+                class="hover:text-[#FFDE21] transition-colors ">Support a Cause</a></li>
+            <li><a href="../Get in Touch/Contact-Us.html" data-page="connect-contact"
+                class="hover:text-[#FFDE21] transition-colors ">Contact Our Team</a></li>
+            <li><a href="../Get in Touch/Gallery.html" data-page="connect-gallery"
+                class="hover:text-[#FFDE21] transition-colors ">Gallery</a></li>
+            <li><a href="../Get in Touch/FAQ.html" data-page="involved-faq"
+                class="hover:text-[#FFDE21] transition-colors ">Donation FAQ</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-xs font-black text-white tracking-widest uppercase mb-6 border-l-4 border-[#CD1C18] pl-4">
+            Contact Info</h3>
+          <ul class="space-y-4 text-sm">
+            <li class="flex items-start">
+              <i class="fas fa-map-marker-alt mt-1 mr-4 text-[#CD1C18]"></i>
+              <span class="text-gray-300">Head Office: Krushnai Goshala Trust,
+                Gut No. 75 Įonkhel Chalthana Road Jamod, Ta. Jalgaon,
+                Dist. Buldhana, 443402 (Maharashtra) </span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-phone mr-4 text-[#CD1C18]"></i>
+              <span class="text-gray-300">+91 9860562929, +91 9011919575, +91 9970932315</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-envelope mr-4 text-[#CD1C18]"></i>
+              <span class="text-white font-bold">krushnaigoshala2017@gmail.com </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-12 pt-8 border-t border-gray-700">
+        <h4 class="text-sm font-semibold text-white tracking-wider uppercase mb-6 text-center">Trust
+          Certificates</h4>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <a href="../about/Downloads/Certificates/80G.html"
+            class="text-center p-4 bg-gray-700/50 rounded-lg hover:bg-gray-700 transition-colors cursor-pointer">
+            <div class="text-lg font-bold text-white mb-1">80G</div>
+            <div class="text-xs text-gray-400">Tax Exemption</div>
+          </a>
+          <a href="../about/Downloads/Certificates/12A.html"
+            class="text-center p-4 bg-gray-700/50 rounded-lg hover:bg-gray-700 transition-colors cursor-pointer">
+            <div class="text-lg font-bold text-white mb-1">12A</div>
+            <div class="text-xs text-gray-400">Registered Trust</div>
+          </a>
+          <a href="../about/Downloads/Certificates/CSR-1.html"
+            class="text-center p-4 bg-gray-700/50 rounded-lg hover:bg-gray-700 transition-colors cursor-pointer">
+            <div class="text-lg font-bold text-white mb-1">CSR-1</div>
+            <div class="text-xs text-gray-400">CSR Compliance</div>
+          </a>
+          <a href="../about/Downloads/Audit.html"
+            class="text-center p-4 bg-gray-700/50 rounded-lg hover:bg-gray-700 transition-colors cursor-pointer">
+            <div class="text-lg font-bold text-white mb-1">FAR</div>
+            <div class="text-xs text-gray-400">Financial Audit Report </div>
+          </a>
+        </div>
+      </div>
+
+
+      <div class="mt-16 pt-8 border-t border-gray-800 text-center">
+        <p class="text-[10px] font-bold text-gray-600 uppercase tracking-widest leading-relaxed">
+          © 2026 Krushnai Goshala Trust. All Rights Reserved. <class="md:hidden" Registered under Bombay Public Trust
+            Act, 1950.>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+
+    <script>
+       //  MOBILE NAVBAR TOGGLE
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = mobileMenuBtn ? mobileMenuBtn.querySelector('i') : null;
+
+  if (mobileMenuBtn && mobileMenu) {
+    mobileMenuBtn.addEventListener('click', function () {
+      const isOpen = !mobileMenu.classList.contains('hidden');
+
+      if (isOpen) {
+        mobileMenu.classList.add('hidden');
+        if (menuIcon) {
+          menuIcon.classList.remove('fa-times');
+          menuIcon.classList.add('fa-bars');
+        }
+      } else {
+        mobileMenu.classList.remove('hidden');
+        if (menuIcon) {
+          menuIcon.classList.remove('fa-bars');
+          menuIcon.classList.add('fa-times');
+        }
+      }
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        if (menuIcon) {
+          menuIcon.classList.remove('fa-times');
+          menuIcon.classList.add('fa-bars');
+        }
+      });
+    });
+  }
+
+
+  //  MOBILE ACCORDION (dropdown inside mobile menu)
+  document.querySelectorAll('.mobile-accordion-btn').forEach(btn => {
+    btn.addEventListener('click', function () {
+      const content = this.nextElementSibling;
+      if (!content) return;
+
+      const chevron = this.querySelector('i');
+
+      content.classList.toggle('hidden');
+
+      if (chevron) {
+        chevron.style.transform = content.classList.contains('hidden')
+          ? 'rotate(0deg)'
+          : 'rotate(180deg)';
+      }
+    });
+  });
+
+
+        // Gallery Filter Functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const activeFilterDisplay = document.getElementById('active-filter-display');
+        const photoCount = document.getElementById('photo-count');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+
+                const filterValue = button.getAttribute('data-filter');
+
+                // Update active filter display
+                const filterText = button.textContent.trim().replace(/^\S+\s/, '');
+                activeFilterDisplay.innerHTML = `Showing: <span class="font-bold text-[#CD1C18]">${filterText}</span>`;
+
+                let visibleCount = 0;
+
+                galleryItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.style.display = 'block';
+                        visibleCount++;
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+
+                // Update photo count
+                photoCount.textContent = `${visibleCount} photos`;
+            });
+        });
+
+        // Initial photo count
+        photoCount.textContent = `${galleryItems.length} photos`;
+
+        // Load More (simulated)
+        document.getElementById('load-more').addEventListener('click', function () {
+            alert('More photos are loading... \n\n(Demo feature - In the actual website, more images will load automatically)');
+        });
+
+        // Lightbox Functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+        let currentImageIndex = 0;
+        const images = [];
+
+        // Collect all gallery images
+        document.querySelectorAll('.gallery-item img').forEach((img, index) => {
+            images.push({
+                src: img.src,
+                alt: img.alt,
+                caption: img.closest('.gallery-item').querySelector('.gallery-overlay h3')?.textContent || 'Gau Seva'
+            });
+
+            // Store index in onclick
+            img.setAttribute('onclick', `openLightbox(${index})`);
+        });
+
+        function openLightbox(index) {
+            currentImageIndex = index;
+            updateLightboxImage();
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function updateLightboxImage() {
+            lightboxImg.src = images[currentImageIndex].src;
+            lightboxImg.alt = images[currentImageIndex].alt;
+            lightboxCaption.textContent = images[currentImageIndex].caption;
+        }
+
+        function changeImage(direction) {
+            currentImageIndex += direction;
+            if (currentImageIndex < 0) {
+                currentImageIndex = images.length - 1;
+            } else if (currentImageIndex >= images.length) {
+                currentImageIndex = 0;
+            }
+            updateLightboxImage();
+        }
+
+        // Close lightbox with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                closeLightbox();
+            }
+            if (e.key === 'ArrowLeft' && lightbox.classList.contains('active')) {
+                changeImage(-1);
+            }
+            if (e.key === 'ArrowRight' && lightbox.classList.contains('active')) {
+                changeImage(1);
+            }
+        });
+
+        // Video Modal
+        const videoModal = document.getElementById('videoModal');
+        const videoFrame = document.getElementById('videoFrame');
+
+        function openVideoModal(videoUrl) {
+            videoFrame.src = videoUrl + '?autoplay=1';
+            videoModal.classList.remove('hidden');
+            videoModal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeVideoModal() {
+            videoFrame.src = '';
+            videoModal.classList.add('hidden');
+            videoModal.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        videoModal.addEventListener('click', (e) => {
+            if (e.target === videoModal) {
+                closeVideoModal();
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href').replace('#', '');
+                const target = document.getElementById(targetId);
+                if (target) {
+                    e.preventDefault();
+                    const yOffset = -80;
+                    const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                    window.scrollTo({ top: y, behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
